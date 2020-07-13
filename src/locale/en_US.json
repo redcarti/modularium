@@ -1,0 +1,7 @@
+{
+    "pluginsCmd": {
+        "total": "Plugins list (count: %s)",
+        "external": "External (%s):",
+        "internal": "Internal (%s):"
+    }
+}
