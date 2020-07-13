@@ -5,4 +5,4 @@
 ## Список всех `std;` команд
 - `plugins`: вывод списка всех плагинов с их количеством
 
-- `gistbin`: скачать модуль с [pastebin](https://pastebin.com) или с [gist](https://gist.github.com)
+- `gistbin <url>`: скачать модуль с [pastebin](https://pastebin.com) или с [gist](https://gist.github.com)

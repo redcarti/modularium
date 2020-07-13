@@ -1,7 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 const Discord = require('discord.js');
-const moment = require('moment')
+const moment = require('moment');
+const { Console } = require('console');
 require('colors-cli/toxic')
 
 let plugin = {}
@@ -20,12 +21,19 @@ module.exports = (bot, config) => {
     plugin.info = (message) => {
         plugin.log(message, 'INFO'.x2)
     }
+    plugin.err = (message) => {
+        plugin.log(message, 'ERR'.x196)
+    }
     plugin.plinfo = (message) => {
         plugin.log(message, 'PLUGINS'.x38)
     }
 
     try {
         let files = fs.readdirSync(path.join(__dirname, './modules/'))
+
+        files = files.filter((el) => {
+            return el.split('.')[1] === 'js'
+        })
 
         files.forEach(module => {
             let pl = require(path.join(__dirname, './modules/'+module))
@@ -37,6 +45,6 @@ module.exports = (bot, config) => {
             }
         })
     } catch (err) {
-        throw new Error(err)
+        console.error(err)
     }
 }

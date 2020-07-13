@@ -5,6 +5,10 @@ module.exports = (plugin, config) => {
     try {
         let files = fs.readdirSync(path.join(__dirname, '../../modules/'))
 
+        files = files.filter((el) => {
+            return el.split('.')[1] === 'js'
+        })
+
         files.forEach(module => {
             if(module.startsWith(';')) {
                 plugin.plinfo('\''+module.split('.')[0].slice(1) + '\' пропущен. ' + '[MB#0003-EXT]'.x240); 
@@ -21,6 +25,6 @@ module.exports = (plugin, config) => {
             }
         })
     } catch (err) {
-        plugin.plinfo(`[${'ERR'.x196}] ` + 'Ошибка, плагин \'' + module.split('.')[0] + '\' не может быть загружен. '+'[MB#0002-EXT]'.x240+'\n'+err)
+        console.error(err)
     }
 }
