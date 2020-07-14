@@ -2,29 +2,32 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = (plugin, config) => {
-    try {
-        let files = fs.readdirSync(path.join(__dirname, '../../modules/'))
-
-        files = files.filter((el) => {
-            return el.split('.')[1] === 'js'
-        })
-
-        files.forEach(module => {
-            if(module.startsWith(';')) {
-                plugin.plinfo('\''+module.split('.')[0].slice(1) + '\' пропущен. ' + '[MB#0003-EXT]'.x240); 
-                return;
+    if (config.features.plugins.loadLocal) {
+        plugin.bot.on('ready', () => { 
+            plugin.bot.user.setUsername(config.user.name || 'ModulariumBot');
+            try {
+                let files = fs.readdirSync(path.join(process.cwd(), 'modules'))
+                files = files.filter((el) => { return el.split('.')[1] === 'js' })
+        
+                files.forEach(module => {
+                    if(module.startsWith(';')) {
+                        if(config.features.plugins.logSkipped) plugin.plinfo(plugin.localeString('mb.0002', module.split('.')[0].slice(1)) + '[MB#0002-EXT]'.x240); 
+                        return;
+                    }
+                    let pl = require(path.join(process.cwd(), 'modules/'+module))
+        
+                    if(typeof pl === 'function') {
+                        pl(plugin, config)
+                        plugin.list.external.push(module.split('.')[0])
+                        if(config.features.plugins.log) plugin.plinfo(plugin.localeString('plugins.loaded', module.split('.')[0]))
+                    } else {
+                        if(config.features.mbErrors) plugin.plinfo(`[${'ERR'.x196}] ` + plugin.localeString('mb.0001', module.split('.')[0]) + '[MB#0001-EXT]'.x240)
+                        return
+                    }
+                })
+            } catch (err) {
+                console.error(err)
             }
-            let pl = require(path.join(__dirname, '../../modules/'+module))
-
-            if(typeof pl === 'function') {
-                pl(plugin, config)
-                plugin.list.external.push(module.split('.')[0])
-                plugin.plinfo('\''+module.split('.')[0] + '\' загружен.')
-            } else {
-                plugin.plinfo(`[${'ERR'.x196}] ` + 'Ошибка, плагин \'' + module.split('.')[0] + '\' не может быть загружен. '+'[MB#0001-EXT]'.x240)
-            }
-        })
-    } catch (err) {
-        console.error(err)
+        });
     }
 }

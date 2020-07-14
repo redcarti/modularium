@@ -15,7 +15,7 @@ module.exports = (bot, config) => {
     plugin.bot = bot
 
     plugin.log = (message, prefix) => {
-        message = '['+moment().format('MMMM Do YYYY, HH:mm:ss') + (prefix ? ' ' + prefix : '') + ']: ' + message
+        message = '['+moment().format('HH:mm:ss') + (prefix ? ' | ' + prefix : '') + ']: ' + message
         console.log(message)
     }
     plugin.info = (message) => {
@@ -41,10 +41,13 @@ module.exports = (bot, config) => {
                 pl(plugin, config)
                 plugin.list.internal.push(module.split('.')[0])
             } else {
-                console.log('[PLUGINS]: Ошибка, внутренний плагин \'' + module.split('.')[0] + '\' не может быть загружен. [MB#0001-IN]')
+                if(config.features.mbErrors) plugin.plinfo('Ошибка, внутренний плагин \'' + module.split('.')[0] + '\' не может быть загружен. [MB#0001-IN]')
+                return
             }
         })
     } catch (err) {
         console.error(err)
     }
+
+    return plugin
 }

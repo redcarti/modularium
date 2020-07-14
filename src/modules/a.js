@@ -1,11 +1,39 @@
-module.exports = (plugin, config) => {
-    if (config.bot.startup) {
-        plugin.info(config.bot.startup);
-    }
+const rdl = require('readline')
 
-    if (config.bot.generateLink === true) {
-        plugin.bot.generateInvite(["ADMINISTRATOR"]).then(link => { 
-            plugin.info('Ссылка на приглашение: '+link);
-        });
+module.exports = (plugin, config) => {
+    process.stdout.write('\x1B[?25l')
+    var lines = process.stdout.getWindowSize()[1];
+    for(var i = 0; i < lines; i++) {
+        console.log('\r\n');
     }
+    let spinners = ['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏'],
+        index = 0
+
+    let spinner = setInterval(() => {
+        let line = spinners[index]
+        if (index+1 > spinners.length) index = 0; line = spinners[index]
+        process.stdout.write(line.x1 + '  ' + plugin.localeString('spinner.wait'))
+        rdl.cursorTo(process.stdout, 0)
+
+        index = index >= spinners.length ? 0 : index+1
+    }, 100)
+
+    plugin.bot.on('ready', () => { 
+        clearInterval(spinner)
+        if (config.bot.generateLink === true) {
+            plugin.bot.generateInvite(["ADMINISTRATOR"]).then(link => { 
+                plugin.info(plugin.localeString('invitelink', link));
+            });
+        }
+        plugin.bot.user.setUsername(config.user.name || 'ModulariumBot');
+    });
+    var f1 = '  ,__ __                      _                                   , __          '.x1.xb16,
+        f2 = ' /|  |  |          |         | |             o                   /|/  \\         '.x1.xb16,
+        f3 = '  |  |  |   __   __|         | |  __,   ,_              _  _  _   | __/ __ _|_  '.x1.xb16,
+        f4 = '  |  |  |  /  \\_/  |  |   |  |/  /  |  /  |  |  |   |  / |/ |/ |  |   \\/  \\_|   '.x1.xb16,
+        f5 = '  |  |  |_/\\__/ \\_/|_/ \\_/|_/|__/\\_/|_/   |_/|_/ \\_/|_/  |  |  |_/|(__/\\__/ |_/ '.x1.xb16,
+        f6 = '                                                                                '.x1.xb16
+        f7 = '  v0.1.1                                                                        '.x1.xb16
+        all = `\n  ${f1}\n  ${f2}\n  ${f3}\n  ${f4}\n  ${f5}\n  ${f6}\n  ${f7}\n`
+    if (config.features.startupascii) console.log(all)
 }

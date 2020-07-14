@@ -35,7 +35,7 @@ ___
     "bot": {
         "token": "ваш_токен",
         "prefix": "!",
-        "startup": "Бот запустился!",
+        "startupascii": true,
         "generateLink": true
     },
     "lang": "ru_RU",

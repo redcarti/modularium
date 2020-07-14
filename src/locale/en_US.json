@@ -1,7 +1,14 @@
 {
-    "pluginsCmd": {
-        "total": "Plugins list (count: %s)",
-        "external": "External (%s):",
-        "internal": "Internal (%s):"
+    "spinner": {
+        "wait": "Waiting 'til ready..."
+    },
+    "invitelink": "Inviting link: %s",
+    "plugins": {
+        "loaded": "'%s' loaded. ",
+        "skipped": "'%s' skipped. "
+    },
+    "mb": {
+        "0001": "Error, '%s' plugin can't be loaded. ",
+        "0002": "'%s' skipped. "
     }
 }
