@@ -1,5 +1,4 @@
 const rdl = require('readline')
-var checkUpdate = require('check-update-github');
 let package = require('../../package.json'),
     ver = package.version
 
@@ -31,25 +30,13 @@ module.exports = (plugin, config) => {
     plugin.bot.user.setUsername(config.user.name || 'ModulariumBot')
   })
 
-  let modver = 'v'+ver
-
-  
-  checkUpdate({
-    name: package.name, 
-    currentVersion: ver, 
-    user: 'redcarti',
-    branch: 'master'
-  }, function(err, latestVersion, needToUpd){
-    if (needToUpd) modver += ' | There\'s an update! ' + latestVersion
-  });
-
   var f1 = '  ,__ __                      _                                   , __          '.x1.xb16
   var f2 = ' /|  |  |          |         | |             o                   /|/  \\         '.x1.xb16
   var f3 = '  |  |  |   __   __|         | |  __,   ,_              _  _  _   | __/ __ _|_  '.x1.xb16
   var f4 = '  |  |  |  /  \\_/  |  |   |  |/  /  |  /  |  |  |   |  / |/ |/ |  |   \\/  \\_|   '.x1.xb16
   var f5 = '  |  |  |_/\\__/ \\_/|_/ \\_/|_/|__/\\_/|_/   |_/|_/ \\_/|_/  |  |  |_/|(__/\\__/ |_/ '.x1.xb16
   var f6 = '                                                                                '.x1.xb16
-  var f7 = `  ${modver}  `.x1.xb16
+  var f7 = `  v${ver}  `.x1.xb16
   var all = `\n  ${f1}\n  ${f2}\n  ${f3}\n  ${f4}\n  ${f5}\n  ${f6}\n  ${f7}\n`
   if (config.features.startupascii) console.log(all)
 }

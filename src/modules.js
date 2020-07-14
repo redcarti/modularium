@@ -25,6 +25,9 @@ module.exports = (bot, config) => {
   plugin.plinfo = (message) => {
     plugin.log(message, 'PLUGINS'.x38)
   }
+  plugin.upinfo = (message) => {
+    plugin.log(message, 'UPDATE'.x41)
+  }
 
   try {
     let files = fs.readdirSync(path.join(__dirname, './modules/'))
