@@ -22,15 +22,15 @@ module.exports = (plugin) => {
 
 ## npm install
 
-Сначала установите modularium, `npm install --save https://github.com/redcarti/modularium`
+- Сначала установите modularium, `npm install --save https://github.com/redcarti/modularium`
 
-Потом, создайте `index.js` с таким кодом:
+- Потом, создайте `index.js` с таким кодом:
 
 ```js
 require('modularium').run(require('./config.json'))
 ```
 
-Далее, создайте `config.json` с содержанием (простой пример, смотрите больше в документации):
+- Далее, создайте `config.json` с содержанием (простой пример, смотрите больше в документации):
 ```json
 {
     "bot": {
@@ -49,4 +49,4 @@ require('modularium').run(require('./config.json'))
 }
 ```
 
-Можно запускать, написав в консоль `node index`.
+- Можно запускать, написав в консоль `node index`.
