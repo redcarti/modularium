@@ -16,7 +16,7 @@ module.exports = (plugin, config) => {
     }
 
     plugin.localeGetString = (path, info) => {
-        var st = get(plugin.locale, path, `'${path}' not found`)
+        var st = get(plugin.locale, path, path)
         if (info) {
           var splitted = st.split(/(%s|%[0-9]\$s)/)
           var sindex = 0
