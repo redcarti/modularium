@@ -10,7 +10,7 @@ const get = (object, path, value) => {
   }
 
 module.exports = (plugin, config) => {
-    plugin.locale = JSON.parse(fs.readFileSync(path.join(__dirname, '../locale/'+config.lang+'.json'), {encoding:'utf8'}))
+    plugin.locale = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'locale/'+config.lang+'.json'), {encoding:'utf8'}))
     plugin.localeString = (string, ...addVal) => {
         return plugin.localeGetString(string, addVal)
     }
