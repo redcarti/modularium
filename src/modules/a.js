@@ -34,6 +34,14 @@ module.exports = (plugin, config) => {
   let modver = 'v'+ver
 
   
+  checkUpdate({
+    name: package.name, 
+    currentVersion: ver, 
+    user: 'redcarti',
+    branch: 'master'
+  }, function(err, latestVersion, needToUpd){
+    if (needToUpd) modver += ' | There\'s an update! ' + latestVersion
+  });
 
   var f1 = '  ,__ __                      _                                   , __          '.x1.xb16
   var f2 = ' /|  |  |          |         | |             o                   /|/  \\         '.x1.xb16
