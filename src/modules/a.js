@@ -1,6 +1,5 @@
 const rdl = require('readline')
-let package = require('../../package.json'),
-    ver = package.version
+const ver = require('../../package.json').version
 
 module.exports = (plugin, config) => {
   process.stdout.write('\x1B[?25l')
