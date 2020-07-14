@@ -33,7 +33,7 @@ module.exports = (plugin, config) => {
         f4 = '  |  |  |  /  \\_/  |  |   |  |/  /  |  /  |  |  |   |  / |/ |/ |  |   \\/  \\_|   '.x1.xb16,
         f5 = '  |  |  |_/\\__/ \\_/|_/ \\_/|_/|__/\\_/|_/   |_/|_/ \\_/|_/  |  |  |_/|(__/\\__/ |_/ '.x1.xb16,
         f6 = '                                                                                '.x1.xb16
-        f7 = '  v0.1.1                                                                        '.x1.xb16
+        f7 = '  v0.1.2                                                                        '.x1.xb16
         all = `\n  ${f1}\n  ${f2}\n  ${f3}\n  ${f4}\n  ${f5}\n  ${f6}\n  ${f7}\n`
     if (config.features.startupascii) console.log(all)
 }
