@@ -1,20 +1,24 @@
 {
   "name": "modularium",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard src/**/*.js",
+    "fix": "standard --fix src/**/*.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "check-update-github": "git+https://github.com/redcarti/check-update-github.git",
+    "colors-cli": "^1.0.27",
     "discord.js": "^12.2.0",
-    "lodash": "^4.17.19",
     "moment": "^2.27.0",
-    "node-fetch": "^2.6.0",
-    "readline": "^1.3.0",
-    "colors-cli": "^1.0.27"
+    "readline": "^1.3.0"
+  },
+  "devDependencies": {
+    "standard": "^14.3.4"
   }
 }
