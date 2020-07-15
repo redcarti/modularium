@@ -24,7 +24,7 @@ module.exports = (plugin, config) => {
       })
 
       if (cmd) if (!cmd.off) cmd.execute(msg, args); else plugin.designs.get('cmdoff')(msg)
-      else if (config.features.preventCmdNotFound) plugin.designs.get('cmd404')(msg)
+      else if (config.features.preventCmdNotFound && command != '') plugin.designs.get('cmd404')(msg)
     }
   }
 
