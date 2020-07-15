@@ -3,10 +3,6 @@ const ver = require('../../package.json').version
 
 module.exports = (plugin, config) => {
   process.stdout.write('\x1B[?25l')
-  var lines = process.stdout.getWindowSize()[1]
-  for (var i = 0; i < lines; i++) {
-    console.log('\r\n')
-  }
   const spinners = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
   let index = 0
 
