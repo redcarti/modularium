@@ -2,7 +2,7 @@ const rdl = require('readline')
 const ver = require('../../package.json').version
 
 module.exports = (plugin, config) => {
-  process.stdout.write('\x1B[?25l')
+  process.stdout.write('\x1B[2J\x1B[0f')
   const spinners = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
   let index = 0
 
