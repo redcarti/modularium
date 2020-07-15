@@ -27,4 +27,12 @@ module.exports = (plugin, config) => {
       else if (config.features.preventCmdNotFound) plugin.designs.get('cmd404')(msg)
     }
   }
+
+  plugin.bot.on('message', msg => {
+    if (!msg.content.startsWith(config.bot.prefix) || msg.author.bot) return
+    const args = msg.content.slice(config.bot.prefix.length).split(/ +/)
+    const command = args.shift().toLowerCase()
+
+    plugin.cmds.use(msg, command, args)
+  })
 }
