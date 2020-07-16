@@ -1,11 +1,14 @@
 const fs = require('fs')
+const fsextra = require('fs-extra')
 const path = require('path')
 
 module.exports = (plugin, config) => {
   if (config.features.plugins.loadLocal) {
     plugin.bot.on('ready', () => {
       try {
-        let files = fs.readdirSync(path.join(process.cwd(), 'modules'))
+        const mpath = path.join(process.cwd(), 'modules')
+        fsextra.mkdirpSync(mpath)
+        let files = fs.readdirSync(mpath)
         files = files.filter((el) => { return el.split('.')[1] === 'js' })
 
         files.forEach(module => {

@@ -1,4 +1,5 @@
 const fs = require('fs')
+const fsextra = require('fs-extra')
 const path = require('path')
 const Discord = require('discord.js')
 
@@ -19,6 +20,7 @@ module.exports = (plugin, config) => {
 
   try {
     const dpath = path.join(process.cwd(), 'design')
+    fsextra.mkdirpSync(dpath)
     let files = fs.readdirSync(dpath)
     files = files.filter((el) => { return el.split('.')[1] === 'js' })
 
