@@ -4,6 +4,7 @@
 
 ### `plugin`
 #### Свойства
+
 | Название | Описание | Тип |
 | --- | --- | --- | --- | --- |
 | [`commands`](#plugin.commands) | Команды | `Object` |
@@ -29,6 +30,7 @@ module.exports = (plugin) => {
 
 ### `plugin.commands`
 #### Свойства
+
 | Название | Описание | Тип |
 | --- | --- | --- | --- | --- |
 | `add(command)` | Добавить [`command`](#command) | `function()` |
@@ -45,6 +47,7 @@ module.exports = (plugin) => {
 
 ### `plugin.designs`
 #### Свойства
+
 | Название | Описание | Тип |
 | --- | --- | --- | --- | --- |
 | `add(name, design(args))` | Добавить [`design`](#design) | `function()` |
@@ -60,6 +63,7 @@ plugin.designs.add('design_name', (args) => {
 
 #### `use(name, ...args)`
 ##### Пример
+
 ```js
 msg.channel.send(plugin.designs.use('design_name', 'some', 'args'))
 ```
@@ -68,6 +72,7 @@ msg.channel.send(plugin.designs.use('design_name', 'some', 'args'))
 
 ### `command`
 #### Свойства 
+
 | Название | Описание | Тип | Пример |
 | --- | --- | --- | --- | 
 | `base` | Основание | `String` | `base: 'example'` |
@@ -78,6 +83,7 @@ msg.channel.send(plugin.designs.use('design_name', 'some', 'args'))
 | `execute(msg, args)` | Действие | `function()` | `execute(msg, args) { msg.channel.send('Example') }`
 
 #### Пример
+
 ```js
 plugin.commands.add({
     base: 'example',
