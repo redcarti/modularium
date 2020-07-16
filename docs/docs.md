@@ -34,7 +34,7 @@ module.exports = (plugin) => {
         return 'Привет, <@' + args[0] + '>'
     })
 
-    plugin.commands.add({
+    plugin.cmds.add({
         name: 'hello',
         description: 'Привет!',
         execute(msg) {
