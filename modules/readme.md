@@ -12,7 +12,7 @@
 
 ```js
 module.exports = (plugin) => {
-    plugin.cmds.add({
+    plugin.commands.add({
         name: 'mute', // Название команды
         description: 'Команда мута', // Её описание
         execute(message, args) { // Выполнение команды

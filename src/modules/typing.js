@@ -1,5 +1,5 @@
 module.exports = (pl, { user }) => {
-  pl.typing = (message, content, typing = user.typing) => {
+  pl.bot.typing = (message, content, typing = user.typing) => {
     message.channel.startTyping()
     setTimeout(() => {
       setTimeout(() => { content() }, 0)

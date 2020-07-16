@@ -5,7 +5,7 @@
 */
 
 module.exports = (plugin) => {
-    plugin.cmds.add({
+    plugin.commands.add({
         name: 'ping',
         execute(message, args) {
             message.channel.send("Ping: " + (Date.now() - message.createdTimestamp) + 'ms')

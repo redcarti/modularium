@@ -5,7 +5,7 @@ ModulariumBot - бот discord.js, построенный на модулях
 ### Примитивное строение модуля
 ```js
 module.exports = (plugin) => {
-  plugin.cmds.add({
+  plugin.commands.add({
     name: 'ping',
     execute(msg) {
       msg.channel.send('Pong')

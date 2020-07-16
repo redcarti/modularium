@@ -1,6 +1,6 @@
 {
   "name": "modularium",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -21,5 +21,9 @@
   },
   "devDependencies": {
     "standard": "^14.3.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/redcarti/modularium.git"
   }
 }

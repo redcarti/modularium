@@ -2,25 +2,25 @@ const Discord = require('discord.js')
 
 module.exports = (plugin, config) => {
   plugin.bot.commands = new Discord.Collection()
-  plugin.cmds = {
+  plugin.commands = {
     add: (cmd) => {
-      plugin.bot.commands.set(cmd.name, cmd)
+      plugin.bot.commands.set(cmd.base, cmd)
     },
     remove: (cmd) => {
       plugin.bot.commands.delete(cmd)
     },
     turn: (command) => {
       const cmd = plugin.bot.commands.find(cmd => {
-        if (!cmd.aliases) return cmd.name === command
-        else return cmd.name === command || command === cmd.aliases.find(o => o === command)
+        if (!cmd.aliases) return cmd.base === command
+        else return cmd.base === command || command === cmd.aliases.find(o => o === command)
       })
 
       cmd.off = !cmd.off
     },
     use: (msg, command, args) => {
       const cmd = plugin.bot.commands.find(cmd => {
-        if (!cmd.aliases) return cmd.name === command
-        else return cmd.name === command || command === cmd.aliases.find(o => o === command)
+        if (!cmd.aliases) return cmd.base === command
+        else return cmd.base === command || command === cmd.aliases.find(o => o === command)
       })
 
       if (cmd) if (!cmd.off) cmd.execute(msg, args); else msg.channel.send(plugin.designs.use('cmdoff', ['Ошибка', 'Команда выключена.']))
@@ -33,6 +33,6 @@ module.exports = (plugin, config) => {
     const args = msg.content.slice(config.bot.prefix.length).split(/ +/)
     const command = args.shift().toLowerCase()
 
-    plugin.cmds.use(msg, command, args)
+    plugin.commands.use(msg, command, args)
   })
 }

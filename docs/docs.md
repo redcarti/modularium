@@ -34,7 +34,7 @@ module.exports = (plugin) => {
         return 'Привет, <@' + args[0] + '>'
     })
 
-    plugin.cmds.add({
+    plugin.commands.add({
         name: 'hello',
         description: 'Привет!',
         execute(msg) {
@@ -67,7 +67,7 @@ ___
 Пример команды:
 ```js
 module.exports = (plugin) => {
-    plugin.cmds.add({
+    plugin.commands.add({
         name: 'hello',
         description: 'Привет!',
         execute(msg) {
@@ -80,7 +80,7 @@ module.exports = (plugin) => {
 #### `add`
 
 Добавить команду
-`plugin.cmds.add(cmd)`, [`cmd`](#cmd)
+`plugin.commands.add(cmd)`, [`cmd`](#cmd)
 
 
 ## `config`
@@ -166,7 +166,7 @@ ___
 | `name` | Название команды | `String` | `example` |
 | `description` | Её описание | `String` | `Пример команды` |
 | `aliases` | Алиасы команды | `Array<String>` | `['eg', 'ex']` |
-| `execute(msg, args)` |  | `function` | `execute(msg, args) { msg.channel.send('Example') }`
+| `execute(msg, args)` | Действие команды | `function` | `execute(msg, args) { msg.channel.send('Example') }`
 
 ### Пример
 ```js
@@ -198,7 +198,7 @@ ___
 
 ```js
 module.exports = (plugin) => {
-    plugin.cmds.add({
+    plugin.commands.add({
         // ...
     })
 }

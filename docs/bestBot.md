@@ -43,7 +43,7 @@ module.exports = (info) => { // info - информация, передающа�
 Пример использования в команде:
 ```js
 module.exports = (plugin) => {
-  plugin.cmds.add({
+  plugin.commands.add({
     name: 'hello',
     aliases: ['hi', 'привет'],
     execute(msg) {

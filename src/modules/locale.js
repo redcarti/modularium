@@ -12,10 +12,10 @@ module.exports = (plugin, config) => {
   const localefile = fs.readFileSync(path.join(process.cwd(), 'locale/' + config.lang + '.json'), { encoding: 'utf8' })
   plugin.locale = JSON.parse(localefile)
   plugin.localeString = (string, ...addVal) => {
-    return plugin.localeGetString(string, ...addVal)
+    return plugin._localeGetString(string, ...addVal)
   }
 
-  plugin.localeGetString = (path, ...info) => {
+  plugin._localeGetString = (path, ...info) => {
     var st = get(plugin.locale, path, path)
     if (info) {
       var splitted = st.split(/(%s|%[0-9]\$s)/)
