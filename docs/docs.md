@@ -60,6 +60,29 @@ ___
 
 ## `plugin`
 
+### `cmds`
+
+Команды бота, представляющие объект.
+
+Пример команды:
+```js
+module.exports = (plugin) => {
+    plugin.cmds.add({
+        name: 'hello',
+        description: 'Привет!',
+        execute(msg) {
+            msg.channel.send(plugin.desigs.use('hello', [msg.author.id]))
+        }
+    })
+}
+```
+
+#### `add`
+
+Добавить команду
+`plugin.cmds.add(cmd)`, [`cmd`](#cmd)
+
+
 ## `config`
 
 Полный конфиг выглядит так:
@@ -132,6 +155,30 @@ ___
 
 - [ ] Обязательно (если не будет или будет `false` то будет выключено)
 
+___
+# Объекты
+
+## cmd
+`cmd` состоит из:
+
+| Название | Описание | Тип | Пример |
+| --- | --- | --- | --- | 
+| `name` | Название команды | `String` | `example` |
+| `description` | Её описание | `String` | `Пример команды` |
+| `aliases` | Алиасы команды | `Array<String>` | `['eg', 'ex']` |
+| `execute(msg, args)` |  | `function` | `execute(msg, args) { msg.channel.send('Example') }`
+
+### Пример
+```js
+{
+    name: 'example',
+    description: 'Пример команды',
+    aliases: ['eg', 'ex'],
+    execute(msg, args) {
+        msg.channel.send('Example')
+    }
+}
+```
 ___
 
 # Ошибки/варнинги и т.д.
