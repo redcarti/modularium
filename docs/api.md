@@ -6,7 +6,7 @@
 #### Свойства
 
 | Название | Описание | Тип |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | [`commands`](#plugin.commands) | Команды | `Object` |
 | [`random`](#plugin.random()) | Рандомное число от 0 до 1 | `function()` |
 | [`designs`](#designs) | Дизайны | `Object` |
@@ -32,7 +32,7 @@ module.exports = (plugin) => {
 #### Свойства
 
 | Название | Описание | Тип |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | `add(command)` | Добавить [`command`](#command) | `function()` |
 | `remove(command)` | Удалить [`command`](#command) | `function()` |
 | `turn(command.base)` | Вкл/выкл. [`command`](#command) | `function()` |
@@ -49,7 +49,7 @@ module.exports = (plugin) => {
 #### Свойства
 
 | Название | Описание | Тип |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | `add(name, design(args))` | Добавить [`design`](#design) | `function()` |
 | `use(name, ...args)` | Использовать [`design`](#design) | `function()` |
 
