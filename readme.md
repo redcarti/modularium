@@ -14,6 +14,8 @@ module.exports = (plugin) => {
 }
 ```
 
+___
+
 # Использование
 
 ## git clone
@@ -50,6 +52,8 @@ require('modularium').run(require('./config.json'))
 ```
 
 - Можно запускать, написав в консоль `node index`.
+
+___
 
 # Бесплатные хостинги
 
