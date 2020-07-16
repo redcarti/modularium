@@ -19,6 +19,7 @@ module.exports = (plugin, config) => {
   try {
     const dpath = path.join(process.cwd(), 'design')
     const files = fs.readdirSync(dpath)
+    files = files.filter((el) => { return el.split('.')[1] === 'js' })
 
     files.forEach(f => {
       const des = require(path.join(dpath, f))
