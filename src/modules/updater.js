@@ -8,7 +8,7 @@ module.exports = (plugin, config) => {
       currentVersion: pkg.ver,
       user: 'redcarti',
       branch: 'master'
-    }, function (err, latestVersion, needToUpd) {
+    }, function (err, latestVersion) {
       if (err) plugin.upinfo(err)
       if (config.features.updates) plugin.upinfo(latestVersion !== pkg.version ? 'Вышло обновление: ' + latestVersion + '. Напиши в консоль ' + 'npm update'.xb16 : 'Обновлений нет')
     })

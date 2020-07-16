@@ -1,8 +1,9 @@
 const Discord = require('discord.js')
 
-module.exports = (msg) => {
+module.exports = (info) => {
+    console.log(info)
     let newemb = new Discord.MessageEmbed()
-    newemb.setTitle('Ошибка')
-    newemb.setDescription('Команда не найдена.')
-    msg.channel.send(newemb) 
+    newemb.setTitle(info[0])
+    newemb.setDescription(info[1])
+    return newemb
 }

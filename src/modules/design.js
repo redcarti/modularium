@@ -9,9 +9,10 @@ module.exports = (plugin, config) => {
     add: (name, design) => {
       plugin._design.set(name, design)
     },
-    get: (name) => {
+    use: (name, ...def) => {
       const des = plugin._design.get(name)
-      return des
+      if (des) return des(...def)
+      return 'Дизайн не найден.'
     }
   }
 

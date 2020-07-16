@@ -4,7 +4,6 @@ const path = require('path')
 module.exports = (plugin, config) => {
   if (config.features.plugins.loadLocal) {
     plugin.bot.on('ready', () => {
-      plugin.bot.user.setUsername(config.user.name || 'ModulariumBot')
       try {
         let files = fs.readdirSync(path.join(process.cwd(), 'modules'))
         files = files.filter((el) => { return el.split('.')[1] === 'js' })
