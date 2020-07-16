@@ -15,6 +15,13 @@ module.exports = (plugin) => {
 ```
 
 ___
+# Разработка
+```
+$ git clone https://github.com/redcarti/modularium
+$ cd modularium
+$ npm i
+```
+___
 
 # Использование
 
