@@ -22,6 +22,9 @@ module.exports = (bot, config) => {
   plugin.err = (message) => {
     plugin.log(message, 'ERR'.x196)
   }
+  plugin.warn = (message) => {
+    plugin.log(message, 'WARN'.x220)
+  }
   plugin.plinfo = (message) => {
     plugin.log(message, 'PLUGINS'.x38)
   }
