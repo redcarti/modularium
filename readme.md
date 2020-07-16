@@ -53,7 +53,7 @@ require('modularium').run(require('./config.json'))
 
 # Бесплатные хостинги
 
-> Рассматриваются [repl.it](repl.it), почему нет glitch: [здесь](#glitchcom)
+> Рассматриваются [repl.it](https://repl.it), почему нет glitch: [здесь](#glitchcom)
 
 ## repl.it
 
