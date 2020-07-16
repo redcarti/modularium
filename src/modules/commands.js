@@ -24,7 +24,7 @@ module.exports = (plugin, config) => {
       })
 
       if (cmd) if (!cmd.off) cmd.execute(msg, args); else msg.channel.send(plugin.designs.use('cmdoff', ['Ошибка', 'Команда выключена.']))
-      else if (config.features.preventCmdNotFound && command != '') msg.channel.send(plugin.designs.use('cmd404', ['Ошибка', 'Команда не найдена.']))
+      else if (config.features.preventCmdNotFound && command !== '') msg.channel.send(plugin.designs.use('cmd404', ['Ошибка', 'Команда не найдена.']))
     }
   }
 
