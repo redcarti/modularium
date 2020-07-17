@@ -3,14 +3,17 @@ var checkUpdate = require('check-update-github')
 
 module.exports = (plugin, config) => {
   plugin.bot.on('ready', () => {
-    checkUpdate({
-      name: pkg.name,
-      currentVersion: pkg.ver,
-      user: 'redcarti',
-      branch: 'master'
-    }, function (err, latestVersion) {
-      if (err) plugin.upinfo(err)
-      if (config.features.updates) plugin.upinfo(latestVersion !== pkg.version ? 'Вышло обновление: ' + latestVersion + '. Напиши в консоль ' + 'npm update'.xb16 : 'Обновлений нет')
-    })
+    if (config.features.updates) {
+      checkUpdate({
+        name: pkg.name,
+        currentVersion: pkg.ver,
+        user: 'redcarti',
+        branch: 'master'
+      }, function (err, latestVersion) {
+        if (err) plugin.upinfo(err)
+        plugin.needToUpd = latestVersion !== pkg.version ? true : false
+        plugin.upinfo(latestVersion !== pkg.version ? 'Вышло обновление: ' + latestVersion + '. Напиши в консоль ' + 'npm update'.xb16 : 'Обновлений нет')
+      })
+    }
   })
 }
