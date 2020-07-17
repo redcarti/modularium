@@ -22,7 +22,7 @@ module.exports = (plugin, config) => {
         plugin.info(plugin.localeString('invitelink', link))
       })
     }
-    plugin.bot.user.setUsername(config.user.name || 'ModulariumBot')
+    // plugin.bot.user.setUsername(config.user.name || 'ModulariumBot')
   })
 
   var f1 = '  ,__ __                      _                                   , __          '.x1.xb16

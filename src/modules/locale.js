@@ -1,4 +1,5 @@
 const fs = require('fs')
+const fsextra = require('fs-extra')
 const path = require('path')
 
 const get = (object, path, value) => {
@@ -9,8 +10,13 @@ const get = (object, path, value) => {
 }
 
 module.exports = (plugin, config) => {
-  const localefile = fs.readFileSync(path.join(process.cwd(), 'locale/' + config.lang + '.json'), { encoding: 'utf8' })
-  plugin.locale = JSON.parse(localefile)
+  fsextra.mkdirp(path.join(process.cwd(), 'locale'))
+  fs.readFile(path.join(process.cwd(), 'locale/' + config.lang + '.json'), { encoding: 'utf8' }, (err, data) => {
+    if (err) plugin.locale = { ...plugin.locale, ...{} }
+    else plugin.locale = { ...plugin.locale, ...JSON.parse(data) }
+  }) 
+  const intlocalefile = fs.readFileSync(path.join(__dirname, '../locale/' + config.lang + '.json'), { encoding: 'utf8' }) || {}
+  plugin.locale = { ...plugin.locale, ...JSON.parse(intlocalefile) }
   plugin.localeString = (string, ...addVal) => {
     return plugin._localeGetString(string, ...addVal)
   }
