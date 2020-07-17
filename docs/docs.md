@@ -35,8 +35,8 @@ module.exports = (plugin) => {
     })
 
     plugin.commands.add({
-        name: 'hello',
-        description: 'Привет!',
+        base: 'hello',
+        info: 'Привет!',
         execute(msg) {
             msg.channel.send(plugin.desigs.use('hello', [msg.author.id]))
         }
@@ -68,8 +68,8 @@ ___
 ```js
 module.exports = (plugin) => {
     plugin.commands.add({
-        name: 'hello',
-        description: 'Привет!',
+        base: 'hello',
+        info: 'Привет!',
         execute(msg) {
             msg.channel.send(plugin.desigs.use('hello', [msg.author.id]))
         }
