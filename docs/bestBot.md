@@ -44,7 +44,7 @@ module.exports = (info) => { // info - информация, передающа�
 ```js
 module.exports = (plugin) => {
   plugin.commands.add({
-    name: 'hello',
+    base: 'hello',
     aliases: ['hi', 'привет'],
     execute(msg) {
       msg.channel.send(plugin.localeString("somestring", '<@' + msg.author.id + '>'))
