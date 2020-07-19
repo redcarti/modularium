@@ -73,14 +73,15 @@ msg.channel.send(plugin.designs.use('design_name', 'some', 'args'))
 ### `command`
 #### Свойства 
 
-| Название | Описание | Тип | Пример |
-| --- | --- | --- | --- | 
-| `base` | Основание | `String` | `base: 'example'` |
-| `info` | Описание | `String` | `info: 'Пример команды'` |
-| `emoji` | Эмодзи | `String` | `emoji: ':joy:'` |
-| `aliases` | Алиасы | `Array<String>` | `aliases: ['eg', 'ex']` |
-| `args` | Аргументы | `Array<String>` | `args: ['<arg1>', '<arg2>']` |
-| `execute(msg, args)` | Действие | `function()` | `execute(msg, args) { msg.channel.send('Example') }`
+| Название | Описание | Тип | Пример | Обязателен? | 
+| --- | --- | --- | --- | :-: | 
+| `base` | Основание | `String` | `base: 'example'` | + |
+| `info` | Описание | `String` | `info: 'Пример команды'` | - |
+| `emoji` | Эмодзи | `String` | `emoji: ':joy:'` | - |
+| `aliases` | Алиасы | `Array<String>` | `aliases: ['eg', 'ex']` | - |
+| `args` | Аргументы | `Array<String>` | `args: ['<arg1>', '<arg2>']` | - |
+| `execute(msg, args)` | Действие | `function()` | `execute(msg, args) { msg.channel.send('Example') }` | + |
+| `off` | Выключен/включен? | `Boolean` | `off: false` | - |
 
 #### Пример
 
@@ -90,7 +91,8 @@ plugin.commands.add({
     info: 'Пример команды',
     emoji: ':joy:',
     aliases: ['eg', 'ex'],
-    args: ['<arg1>', '<arg2>']
+    args: ['<arg1>', '<arg2>'],
+    off: false
     execute(msg, args) {
         if (args.length < 0) msg.channel.send('Example')
         else msg.channel.send('Example with ' + args.join(', '))

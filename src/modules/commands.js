@@ -23,8 +23,8 @@ module.exports = (plugin, config) => {
         else return cmd.base === command || command === cmd.aliases.find(o => o === command)
       })
 
-      if (cmd) if (!cmd.off) cmd.execute(msg, args); else msg.channel.send(plugin.designs.use('cmdoff', ['Ошибка', 'Команда выключена.']))
-      else if (config.features.preventCmdNotFound && command !== '') msg.channel.send(plugin.designs.use('cmd404', ['Ошибка', 'Команда не найдена.']))
+      if (cmd) if (!cmd.off) cmd.execute(msg, args); else msg.channel.send(plugin.designs.use('cmdoff', 'Ошибка', 'Команда выключена.'))
+      else if (config.features.preventCmdNotFound && command !== '') msg.channel.send(plugin.designs.use('cmd404', 'Ошибка', 'Команда не найдена.'))
     }
   }
 

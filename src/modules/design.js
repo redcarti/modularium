@@ -12,7 +12,7 @@ module.exports = (plugin, config) => {
     },
     use: (name, ...def) => {
       const des = plugin._design.get(name)
-      if (des) return des(...def)
+      if (des) return des(def)
       plugin.warn('Дизайн \'' + name + '\' не найден. ' + '[MB#0003-DES]'.x240)
       return 'Дизайн не найден.'
     }
