@@ -1,8 +1,10 @@
-const FoxDispatcher = require('./src/lib/FoxDispatcher')
+const { FoxDispatcher } = require('./src/lib/Fox')
+const { RopeModule } = require('./src/lib/Rope')
 
 module.exports = {
     run: (config) => {
         require('./src/index').run(config)
     },
-    FoxDispatcher: FoxDispatcher
+    FoxDispatcher,
+    RopeModule
 }
