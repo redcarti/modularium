@@ -1,4 +1,5 @@
 {
+    "error": "Error",
     "spinner": {
         "wait": "Waiting 'til ready..."
     },
@@ -10,5 +11,14 @@
     "mb": {
         "0001": "Error, '%s' plugin can't be loaded. ",
         "0002": "'%s' skipped. "
+    },
+    "fox": {
+        "0001": "%s (from %s) tried to invoke %s. Command not found. ",
+        "0002": "%s (from %s) tried to invoke %s. Command is off. ",
+        "use": "%s (from %s) invokes %s. "
+    },
+    "cmd": {
+        "404": "Command `%s` not found.",
+        "off": "Command `%s` is off."
     }
 }

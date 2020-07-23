@@ -1,16 +1,22 @@
 const fs = require('fs')
 const path = require('path')
 const moment = require('moment')
+const requireAll = require('require-all')
+const { FoxDispatcher } = require('./lib/Fox')
+const { RopePlugin } = require('./lib/Rope')
+const { Collection } = require('discord.js')
 require('colors-cli/toxic')
 
-const plugin = {}
-
 module.exports = (bot, config) => {
+  const plugin = new RopePlugin()
+
   plugin.list = {
-    internal: [],
-    external: []
+    internal: new Collection(),
+    external: new Collection()
   }
   plugin.bot = bot
+
+  plugin.commands = new FoxDispatcher()
 
   plugin.log = (message, prefix) => {
     message = '[' + moment().format('HH:mm:ss') + (prefix ? ' | ' + prefix : '') + ']: ' + message
@@ -31,21 +37,22 @@ module.exports = (bot, config) => {
   plugin.upinfo = (message) => {
     plugin.log(message, 'UPDATE'.x41)
   }
+  plugin.fox = (message) => {
+    plugin.log(message, 'FOX'.x208)
+  }
 
   try {
-    let files = fs.readdirSync(path.join(__dirname, './modules/'))
+    const files = requireAll({
+      dirname: `${__dirname}/modules`,
+      filter: /^(?!;)(.+)\.js$/
+    });   
 
-    files = files.filter((el) => {
-      return el.split('.')[1] === 'js'
-    })
-
-    files.forEach(module => {
-      const pl = require(path.join(__dirname, './modules/' + module))
-      if (typeof pl === 'function') {
-        pl(plugin, config)
-        plugin.list.internal.push(module.split('.')[0])
+    Object.entries(files).forEach(([name, pl]) => {
+      if (typeof pl === 'function' || typeof pl.plugin === 'function') {
+        pl.plugin ? pl.plugin(plugin, config) : pl(plugin, config)
+        plugin.list.internal.set(name, pl || pl.plugin)
       } else {
-        if (config.features.mbErrors) plugin.plinfo('Ошибка, внутренний плагин \'' + module.split('.')[0] + '\' не может быть загружен. [MB#0001-IN]')
+        if (config.features.mbErrors) plugin.plinfo('Ошибка, внутренний плагин \'' + name + '\' не функция. [MB#0001-IN]')
       }
     })
   } catch (err) {

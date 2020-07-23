@@ -1,6 +1,6 @@
 {
   "name": "modularium",
-  "version": "0.1.15.2",
+  "version": "0.1.16-beta.1",
   "description": "discord.js module bot",
   "main": "app.js",
   "scripts": {
@@ -9,7 +9,9 @@
     "fix": "standard --fix src/**/*.js"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "redcarti"
+  },
   "license": "ISC",
   "dependencies": {
     "check-update-github": "git+https://github.com/redcarti/check-update-github.git",
@@ -17,7 +19,8 @@
     "discord.js": "^12.2.0",
     "fs-extra": "^9.0.1",
     "moment": "^2.27.0",
-    "readline": "^1.3.0"
+    "readline": "^1.3.0",
+    "require-all": "^3.0.0"
   },
   "devDependencies": {
     "standard": "^14.3.4"
