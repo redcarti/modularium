@@ -12,7 +12,7 @@ class RopeModule extends EventEmitter {
     /**
      * Callback used by myFunction.
      * @callback plugin
-     * @param {pluginGlobal} plugin
+     * @param {RopePlugin} plugin
      * @param {object} config
      * @returns {void}
      */

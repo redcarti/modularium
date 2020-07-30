@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const { FoxDispatcher } = require('../lib/Fox')
 
 module.exports = (plugin, config) => {
   plugin.bot.on('message', msg => {

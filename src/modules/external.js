@@ -26,7 +26,7 @@ module.exports = (plugin, config) => {
         })
       } catch (err) {
         if (err.name === 'FoxError') plugin.fox(`[${'ERR'.x196}] ` + err.name + ': ' + err.message)
-        else plugin.err('Catched error\n' + err.name + ': ' + err.message)
+        else plugin.err('Catched error\n' + err.name + ': ' + err.message + '\n' + err.stack)
       }
     })
   }
