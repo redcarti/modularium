@@ -18,7 +18,7 @@ jobs:
       - name: is version update
         run: |
           # get commit
-          readonly local commit = $(git log --oneline --format=%B -n 1 HEAD | head -n 1)
+          readonly local commit=$(git log --oneline --format=%B -n 1 HEAD | head -n 1)
           if [[ $commit == v* ]]; then
             echo "ok"
           else
