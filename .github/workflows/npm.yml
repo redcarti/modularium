@@ -16,15 +16,15 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - run: npm install
       - name: is version update
-          run: |
-            # get commit
-            readonly local commit = $(git log --oneline --format=%B -n 1 HEAD | head -n 1)
-            if [[ $commit == v* ]]; then
-              echo "ok"
-            else
-              echo "not a version, close"
-              exit 78
-            fi
+        run: |
+          # get commit
+          readonly local commit = $(git log --oneline --format=%B -n 1 HEAD | head -n 1)
+          if [[ $commit == v* ]]; then
+            echo "ok"
+          else
+            echo "not a version, close"
+            exit 78
+          fi
       - name: Publish to GitHub Package Registry
         run: npm publish
         env:
