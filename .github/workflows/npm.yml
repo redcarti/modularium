@@ -11,13 +11,21 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+          registry-url: 'https://npm.pkg.github.com'
+        env: 
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - run: npm install
-      - name: Publish if version has been updated
-        uses: pascalgn/npm-publish-action@4f4bf159e299f65d21cd1cbd96fc5d53228036df
-        with: # All of theses inputs are optional
-          tag_name: "v%s"
-          tag_message: "v%s"
-          commit_pattern: "^Release (\\S+)"
-        env: # More info about the environment variables in the README
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # You need to set this in your repo settings
+      - name: is version update
+          run: |
+            # get commit
+            readonly local commit = $(git log --oneline --format=%B -n 1 HEAD | head -n 1)
+            if [[ $commit == v* ]]; then
+              echo "ok"
+            else
+              echo "not a version, close"
+              exit 78
+            fi
+      - name: Publish to GitHub Package Registry
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
