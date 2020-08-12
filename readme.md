@@ -32,6 +32,7 @@ ___
 # Использование
 
 | **ru_RU** | **en_US** | other |
+| --- | --- | --- |
 | [Russian](docs/use.md) | [English](docs/use-en.md) | submit PR! |
 
 ___
