@@ -1,5 +1,9 @@
 # modularium
 
+| **RU** [Russian](https://github.com/redcarti/modularium/blob/master/readme.md) | **US** English | other |
+| --- | --- | ---|
+| *russian* | soon... | [PR your translation!](https://github.com/redcarti/modularium/pulls) |
+
 > *Внимание!* modularium ещё нестабилен, поэтому некоторые свойства могут меняться
 
 ModulariumBot - бот discord.js, построенный на модулях
