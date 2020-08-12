@@ -1,14 +1,14 @@
 # modularium
 
-> *Внимание!* modularium ещё нестабилен, поэтому некоторые свойства могут меняться
+> *Warning!* modularium isn't stable, so few properties can be changed
 
 | **ru_RU** | **en_US** | other |
 | --- | --- | ---|
-| [Russian](readme.md) | [English](docs/en_US/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [Russian](readme.md) | [Russian](docs/en_US/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
 
-ModulariumBot - бот discord.js, построенный на модулях
+ModulariumBot - discord.js bot, created with modules
 
-### Примитивное строение модуля
+### Primitive structure of a module
 ```js
 module.exports = (plugin) => {
   plugin.commands.add({
@@ -21,7 +21,7 @@ module.exports = (plugin) => {
 ```
 ___
 
-# Помощь в разработке
+# Contribution
 ```bash
 $ git clone https://github.com/redcarti/modularium
 $ cd modularium
@@ -29,7 +29,7 @@ $ npm i
 ```
 ___
 
-# Использование
+# Use
 
 | **ru_RU** | **en_US** | other |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ ___
 
 ___
 
-# Бесплатные хостинги
+# Free hostings
 
 | **ru_RU** | **en_US** | other |
 | --- | --- | --- |
