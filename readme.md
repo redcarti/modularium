@@ -1,6 +1,6 @@
 # modularium
 
-| **RU** [Russian](https://github.com/redcarti/modularium/blob/master/readme.md) | **US** English | other |
+| **RU** [Russian](https://github.com/redcarti/modularium/blob/master/readme.md) | **US** [English](https://github.com/redcarti/modularium/blob/master/readme-en.md) | other |
 | --- | --- | ---|
 | *russian* | soon... | [PR your translation!](https://github.com/redcarti/modularium/pulls) |
 
