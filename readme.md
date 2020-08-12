@@ -1,8 +1,8 @@
 # modularium
 
-| **RU** [Russian](https://github.com/redcarti/modularium/blob/master/readme.md) | **US** [English](https://github.com/redcarti/modularium/blob/master/readme-en.md) | other |
+| **RU** | **US** | other |
 | --- | --- | ---|
-| *russian* | soon... | [PR your translation!](https://github.com/redcarti/modularium/pulls) |
+| [Russian](https://github.com/redcarti/modularium/blob/master/readme.md) | soon... | [PR your translation!](https://github.com/redcarti/modularium/pulls) |
 
 > *Внимание!* modularium ещё нестабилен, поэтому некоторые свойства могут меняться
 
