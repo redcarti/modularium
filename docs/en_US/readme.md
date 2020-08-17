@@ -29,11 +29,11 @@ $ npm i
 ```
 ___
 
-# Use
+# Usage
 
 | **ru_RU** | **en_US** | other |
 | --- | --- | --- |
-| [Russian](docs/ru_RU/use.md) | [English](docs/en_US/use.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [Russian](docs/ru_RU/usage.md) | [English](docs/en_US/usage.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
 
 ___
 
