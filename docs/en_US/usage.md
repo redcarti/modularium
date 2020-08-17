@@ -1,4 +1,4 @@
-# Use
+# Usage
 
 ## `git clone`
 
