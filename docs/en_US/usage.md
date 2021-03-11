@@ -14,7 +14,7 @@ You can clone this repo and access to internal modules but it's intended for usi
 require('modularium').run(require('./config.json'))
 ```
 
-- Then create `config.json` with this example (it's not full, so see [docs](docs/en_US/api.md)):
+- Then create `config.json` with this example (it's not full, so see [docs](../en_US/api.md)):
 ```json
 {
     "bot": {
