@@ -1,10 +1,12 @@
 # modularium
 
-> *Warning!* modularium isn't stable, so few properties can be changed
-
-| **ru_RU** | **en_US** | other |
+| **Russian** | **English** | other |
 | --- | --- | ---|
-| [Russian](readme.md) | [Russian](docs/en_US/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](readme.md) | [*click*](docs/en_US/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+
+---
+
+> *Warning!* modularium isn't stable, so few properties can be changed
 
 ModulariumBot - discord.js bot, created with modules
 
@@ -31,14 +33,14 @@ ___
 
 # Usage
 
-| **ru_RU** | **en_US** | other |
+| **Russian** | **English** | other |
 | --- | --- | --- |
-| [Russian](docs/ru_RU/usage.md) | [English](docs/en_US/usage.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](docs/ru_RU/usage.md) | [*click*](docs/en_US/usage.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
 
 ___
 
 # Free hostings
 
-| **ru_RU** | **en_US** | other |
+| **Russian** | **English** | other |
 | --- | --- | --- |
-| [Russian](docs/ru_RU/freehost.md) | [English](docs/en_US/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](docs/ru_RU/freehost.md) | [*click*](docs/en_US/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
