@@ -1,10 +1,10 @@
 # modularium
 
-> *Внимание!* modularium ещё нестабилен, поэтому некоторые свойства могут меняться
-
-| **ru_RU** | **en_US** | other |
+| **Russian** | **English** | other |
 | --- | --- | ---|
-| [Russian](readme.md) | [English](docs/en_US/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](readme.md) | [*click*](docs/en_US/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+
+> *Внимание!* modularium ещё нестабилен, поэтому некоторые свойства могут меняться
 
 ModulariumBot - бот discord.js, построенный на модулях
 
