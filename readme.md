@@ -31,14 +31,14 @@ ___
 
 # Использование
 
-| **ru_RU** | **en_US** | other |
+| **Russian** | **English** | other |
 | --- | --- | --- |
-| [Russian](docs/ru_RU/use.md) | [English](docs/en_US/use.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](docs/ru_RU/usage.md) | [*click*](docs/en_US/usage.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
 
 ___
 
 # Бесплатные хостинги
 
-| **ru_RU** | **en_US** | other |
+| **Russian** | **English** | other |
 | --- | --- | --- |
-| [Russian](docs/ru_RU/freehost.md) | [English](docs/en_US/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](docs/ru_RU/freehost.md) | [*click*](docs/en_US/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
