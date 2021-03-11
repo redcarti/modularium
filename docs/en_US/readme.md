@@ -2,7 +2,7 @@
 
 | **Russian** | **English** | other |
 | --- | --- | ---|
-| [*click*](readme.md) | [*click*](docs/en_US/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](../../readme.md) | [*click*](docs/en_US/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
 
 ---
 
