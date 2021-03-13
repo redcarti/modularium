@@ -25,6 +25,7 @@ jobs:
       - run: npm install
       - name: Publish
         run: |
+          npm set //npm.pkg.github.com/:_authToken $GITHUB_TOKEN
           npm version
           npm publish --access public
         env:
