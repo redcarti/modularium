@@ -1,5 +1,3 @@
-> Устаревшая информация. Смотрите [src](src)
-
 # API
 
 ## Объекты
@@ -9,16 +7,28 @@
 
 | Название | Описание | Тип |
 | --- | --- | --- |
-| [`commands`](#plugin.commands) | Команды | `Object` |
-| [`random`](#plugin.random()) | Рандомное число от 0 до 1 | `function()` |
-| [`designs`](#designs) | Дизайны | `Object` |
-| [`bot`](#bot) | Бот | `Discord.Client` |
-| [`locale`](#locale) | Файл локализации, зависимый от языка бота | `Object` |
-| [`localeString`](#localeString) | Функция локализации | `function()` |
+| [`commands`](#plugincommands) | Команды | `Object` |
+| [`cmdListeners`](#plugincmdListeners) | Листенеры команд | [`Discord.Collection`](https://discord.js.org/#/docs/collection/master/class/Collection) |
+| `random01()` | Рандомное число от 0 до 1 | `function()` |
+| `randomInt(min, max)` | Возвращает случайное целое число от `min` до `max` | `function()` |
+| `randomFloat(min, max)` | Возвращает случайное число с плавающей запятой от `min` до `max` (15 знаков за запятой) | `function()` |
+| `randomInRange(min, max)` | Работает примерно также, как и `randomInt()` // в чём отличие?? | `function()` |
+| [`designs`](#plugindesigns) | Дизайны | `Object` |
+| `bot` | Бот | [`Discord.Client`](https://discord.js.org/#/docs/main/stable/class/Client) |
+| `locale` | Файл локализации, зависимый от языка бота | `Object` |
+| `localeString` | Функция локализации | `function()` |
+| `log` | Логирование | `function()` |
+| `info` | Логирование с префиксом информации | `function()` |
+| `err` | Логирование с префиксом ошибки | `function()` |
+| `warn` | Логирование с префиксом предупреждения | `function()` |
+| `pluginInfo` | Логирование для информации плагинов | `function()` |
+| `designInfo` | Логирование для информации дизайнов | `function()` |
+| `foxInfo` | Логирование [Fox](https://github.com/redcarti/fox) | `function()` |
 
 #### Пример
 ```js
 module.exports = (plugin) => {
+    // код плагина
     plugin.commands.add({
         base: 'example',
         execute(msg, args) {
@@ -35,19 +45,33 @@ module.exports = (plugin) => {
 
 | Название | Описание | Тип |
 | --- | --- | --- |
-| `add(command)` | Добавить [`command`](#command) | `function()` |
-| `remove(command)` | Удалить [`command`](#command) | `function()` |
-| `turn(command.base)` | Вкл/выкл. [`command`](#command) | `function()` |
-| `use(msg, command.base, args)` | Использовать [`command`](#command) | `function()` |
+| `add(command)` | Добавить [`FoxCommand`](#FoxCommand) | `function()` |
+| `remove(command)` | Удалить [`FoxCommand`](#FoxCommand) | `function()` |
+| `turn(command.base)` | Вкл/выкл. [`FoxCommand`](#FoxCommand) | `function()` |
+| `use(msg, command.base, args)` | Использовать [`FoxCommand`](#FoxCommand) | `function()` |
 
 * * *
 
-### `plugin.random()`
-Возвращает `0` или `1`
+### `plugin.cmdListeners`
+Представляет собой коллекцию листенеров для обработки команд, которые вы можете заменять
+Документация по `Discord.Collection` [находится здесь](https://discord.js.org/#/docs/collection/master/class/Collection)
+
+#### Листенеры
+| Название | Описание | Можно изменять? |
+| --- | --- | :-: |
+| `cmd/404` | Выводит то, что команда не найдена | Да |
+| `cmd/off` | Выводит то, что команды выключена | Да |
+| `use` | Выводит использование команды | Да |
+| `message` | Обрабатывает и выполняет команду | Нет
 
 * * *
 
 ### `plugin.designs`
+
+Используется для быстрого использования [Embed](https://discord.js.org/#/docs/main/stable/class/MessageEmbed)-сообщений
+
+![Пример вывода](../img/embed_cmd404.png)
+
 #### Свойства
 
 | Название | Описание | Тип |
@@ -56,23 +80,50 @@ module.exports = (plugin) => {
 | `use(name, ...args)` | Использовать [`design`](#design) | `function()` |
 
 #### `add(name, design(args))`
-##### Пример
+##### Примеры
 ```js
 plugin.designs.add('design_name', (args) => {
-    return 'Designed with args: ' args.join(', ')
+    return 'Все аргументы: ' + args.join(', ')
+})
+```
+
+```js
+plugin.designs.add('design_name_rest', ([ some, args, rested ]) => {
+    return `${some} ${args} ${rested}`
+})
+```
+
+```js
+plugin.designs.add('design_name_restObj', ([{ rest, object }]) => {
+    return `${rest.value} ${object.value}`
 })
 ```
 
 #### `use(name, ...args)`
-##### Пример
+##### Примеры
 
 ```js
-msg.channel.send(plugin.designs.use('design_name', 'some', 'args'))
+plugin.designs.use('design_name', 'тут', 'идут', 'аргументы')
+```
+
+```js
+plugin.designs.use('design_name_rest', 'Какие-либо', 'значения', 'в массиве')
+```
+
+```js
+plugin.designs.use('design_name_restObj', {
+    rest: {
+        value: 'Какое-то значение'
+    },
+    object: {
+        value: 'и ещё одно значение'
+    }
+})
 ```
 
 * * *
 
-### `command`
+### `FoxCommand`
 #### Свойства 
 
 | Название | Описание | Тип | Пример | Обязателен? | 
@@ -94,7 +145,7 @@ plugin.commands.add({
     emoji: ':joy:',
     aliases: ['eg', 'ex'],
     args: ['<arg1>', '<arg2>'],
-    off: false
+    off: false,
     execute(msg, args) {
         if (args.length < 0) msg.channel.send('Example')
         else msg.channel.send('Example with ' + args.join(', '))

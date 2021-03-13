@@ -13,10 +13,13 @@ module.exports = (plugin, config) => {
         user: 'redcarti',
         branch: 'master'
       }, function (err, latestVersion) {
-        if (err) plugin.upinfo(err)
+        if (err) plugin.updateInfo(err)
         plugin.needToUpd = latestVersion !== pkg.version ? true : false
         plugin.version.latest = latestVersion
-        plugin.upinfo(latestVersion !== pkg.version ? 'Вышло обновление: ' + latestVersion + '. Напиши в консоль ' + 'npm update'.xb16 : 'Обновлений нет')
+        plugin.updateInfo(latestVersion !== pkg.version 
+          ? plugin.localeString('updates.new_update', latestVersion.xb16, 'npm update'.xb16) + '.'
+          : plugin.localeString('updates.no_updates')
+        )
       })
     }
   })

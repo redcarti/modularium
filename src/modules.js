@@ -7,23 +7,24 @@ const { RopePlugin } = require('./lib/Rope')
 const { Collection } = require('discord.js')
 require('colors-cli/toxic')
 
-function recursive_require(directory) {
-  var getFiles = function(obj, dir) {
-    fs.readdirSync(dir).forEach(function(file){
+const recursive_require = directory => {
+  let getFiles = (obj, dir) => {
+    fs.readdirSync(dir).forEach(file => {
       if (fs.statSync(path.join(dir, file)).isDirectory()){
-        obj[file] = {};
-        getFiles(obj[file], path.join(dir, file));
+        obj[file] = {}
+        getFiles(obj[file], path.join(dir, file))
+      } else if (/\.js$/.test(file)) {
+        file = path.basename(file, '.js')
+        obj[file] = require(path.join(dir, file))
       }
-      else if (/\.js$/.test(file)) {
-        file = path.basename(file, '.js');
-        obj[file] = require(path.join(dir, file));
-      }
-    }); 
-  };
-  var object = {};
-  getFiles(object, directory);
-  return object;
-};
+    })
+  }
+  let object = {}
+
+  getFiles(object, directory)
+
+  return object
+}
 
 module.exports = (bot, config) => {
   const plugin = new RopePlugin()
@@ -32,33 +33,46 @@ module.exports = (bot, config) => {
     internal: new Collection(),
     external: new Collection()
   }
+
   plugin.bot = bot
 
   plugin.commands = new FoxBetaDispatcher()
 
+  // Log functions
   plugin.log = (message, prefix) => {
-    message = '[' + moment().format('HH:mm:ss') + (prefix ? ' | ' + prefix : '') + ']: ' + message
+    message = `[${moment().format('HH:mm:ss')}${(prefix ? ' | ' + prefix : '')}]: ${message}`
     console.log(message)
   }
+
   plugin.info = (message) => {
     plugin.log(message, 'INFO'.x2)
   }
+
   plugin.err = (message) => {
     plugin.log(message, 'ERR'.x196)
   }
+
   plugin.warn = (message) => {
     plugin.log(message, 'WARN'.x220)
   }
-  plugin.plinfo = (message) => {
+
+  plugin.pluginInfo = (message) => {
     plugin.log(message, 'PLUGINS'.x38)
   }
-  plugin.upinfo = (message) => {
+
+  plugin.designInfo = (message) => {
+    plugin.log(message, 'DESIGNS'.x76)
+  }
+
+  plugin.updateInfo = (message) => {
     plugin.log(message, 'UPDATE'.x41)
   }
-  plugin.fox = (message) => {
+
+  plugin.foxLog = (message) => {
     plugin.log(message, 'FOX'.x208)
   }
 
+  // Load internal plugins
   try {
     Object.entries(recursive_require(`${__dirname}/modules`)).forEach(([name, pl]) => {
       if (typeof pl === 'function' || typeof pl.plugin === 'function') {
@@ -68,7 +82,7 @@ module.exports = (bot, config) => {
           enabled: true
         })
       } else {
-        if (config.features.mbErrors) plugin.plinfo('Ошибка, внутренний плагин \'' + name + '\' не функция. [MB#0001-IN]')
+        if (config.features.mbErrors) plugin.pluginInfo('Ошибка, внутренний плагин \'' + name + '\' не функция. [MB#0001-IN]')
       }
     })
 

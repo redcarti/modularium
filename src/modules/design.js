@@ -1,19 +1,25 @@
 const fs = require('fs')
 const fsextra = require('fs-extra')
 const path = require('path')
-const Discord = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 const { Xdesigner, XDError } = require('../lib/Xdesigner')
 const requireAll = require('require-all')
 
 module.exports = (plugin, config) => {
   plugin.designs = new Xdesigner()
 
+  plugin.designs.add('simpleEmbed', ([title, description]) => {
+    return new MessageEmbed()
+    .setTitle(title)
+    .setDescription(description)
+  })
+
   try {
-    const dpath = path.join(process.cwd(), 'design')
-    fsextra.mkdirpSync(dpath)
+    const designPath = path.join(process.cwd(), 'design')
+    fsextra.mkdirpSync(designPath)
 
     const files = requireAll({
-      dirname: dpath,
+      dirname: designPath,
       filter: /^(?!;)(.+)\.js$/
     }); 
 
@@ -21,6 +27,7 @@ module.exports = (plugin, config) => {
       if (typeof design === 'function') {
         plugin.designs.add(name, design)
       } else {
+        if (config.features.mbErrors) plugin.designInfo(`[${'ERR'.x196}] ` + plugin.localeString('mb.0003', name) + '[MB#0003-DES]'.x240)
       }
     })
   } catch (err) {

@@ -9,8 +9,9 @@
         "skipped": "'%s' skipped. "
     },
     "mb": {
-        "0001": "Error, '%s' plugin can't be loaded. ",
-        "0002": "'%s' skipped. "
+        "0001": "Error, plugin '%s' can't be loaded. ",
+        "0002": "'%s' skipped. ",
+        "0003": "Error, design '%s' can't be loaded. "
     },
     "fox": {
         "0001": "%s (from %s) tried to invoke %s. Command not found. ",
@@ -18,7 +19,11 @@
         "use": "%s (from %s) invokes %s. "
     },
     "cmd": {
-        "404": "Command `%s` not found.",
-        "off": "Command `%s` is off."
+        "404": "Command '%s' not found.",
+        "off": "Command '%s' is off."
+    },
+    "updates": {
+        "no_updates": "There is no updates.",
+        "new_update": "There is an update: %s. Type in console %s"
     }
 }
