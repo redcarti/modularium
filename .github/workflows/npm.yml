@@ -24,10 +24,6 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Publish
         run: |
-          npm cache clean
-          sudo npm cache clean
-          rm -rf ~/.npm
-          rm -rf node_modules
           npm install
           npm login --registry=https://npm.pkg.github.com
           npm publish --access public
