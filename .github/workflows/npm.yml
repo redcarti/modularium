@@ -28,4 +28,5 @@ jobs:
         env:
           username: 'redcarti'
           email: 'ppamperr@gmail.com'
+      - run: npm whoami
       - run: npm publish
