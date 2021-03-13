@@ -35,5 +35,8 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/redcarti/modularium.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
