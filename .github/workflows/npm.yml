@@ -21,7 +21,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry: 'https://npm.pkg.github.com'
-          _authToken: ${{ secrets.GITHUB_TOKEN }}
-      - run: npm install
-      - run: npm publish
+          registry-url: 'https://npm.pkg.github.com'
+      - run: |
+          npm install
+          npm login
+          npm publish
+        env:
+          USERNAME: 'redcarti'
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLIC-EMAIL-ADRESS: 'leakiorme@gmail.com'
