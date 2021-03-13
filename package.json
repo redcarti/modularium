@@ -1,6 +1,6 @@
 {
   "name": "modularium",
-  "version": "0.1.18-beta.5",
+  "version": "0.1.18-beta.6",
   "description": "discord.js module bot",
   "main": "app.js",
   "scripts": {
@@ -16,9 +16,12 @@
     "module"
   ],
   "author": {
-    "name": "redcarti"
+    "name": "redcarti",
+    "url": "https://github.com/redcarti"
   },
-  "license": "ISC",
+  "homepage": "https://github.com/redcarti/modularium",
+  "bugs": "https://github.com/redcarti/modularium/issues",
+  "license": "MIT",
   "dependencies": {
     "check-update-github": "git+https://github.com/redcarti/check-update-github.git",
     "colors-cli": "^1.0.27",
