@@ -23,11 +23,8 @@ jobs:
           node-version: 12
       - run: npm install
       - run: |
-          npm adduser <<!
-            ${{ env.username }}
-            ${{ secrets.NPM_TOKEN }}
-            ${{ env.email }}
-          !
+          npm install -g npm-cli-adduser
+          npm-cli-adduser --username ${{ env.username }} --password ${{ secrets.NPM_TOKEN }} --email ${{ env.email }}
         env:
           username: 'redcarti'
           email: 'leakiorme@gmail.com'
