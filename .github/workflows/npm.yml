@@ -22,10 +22,16 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-      - name: Publish
+      - name: install and login
         run: |
           npm install
           npm login --registry=https://npm.pkg.github.com
+        env:
+          USERNAME: 'redcarti'
+          TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PUBLIC-EMAIL-ADDRESS: 'leakiorme@gmail.com'
+      - name: Publish
+        run: |
           npm publish --access public
         env:
           USERNAME: 'redcarti'
