@@ -27,5 +27,5 @@ jobs:
           npm-cli-adduser --registry https://npm.pkg.github.com --username ${{ env.username }} --password ${{ secrets.GITHUB_TOKEN }} --email ${{ env.email }}
         env:
           username: 'redcarti'
-          email: 'leakiorme@gmail.com'
+          email: 'ppamperr@gmail.com'
       - run: npm publish
