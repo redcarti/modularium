@@ -24,7 +24,7 @@ jobs:
       - run: npm install
       - run: |
           npm install -g npm-cli-adduser
-          npm-cli-adduser --username ${{ env.username }} --password ${{ secrets.NPM_TOKEN }} --email ${{ env.email }}
+          npm-cli-adduser --registry https://npm.pkg.github.com --username ${{ env.username }} --password ${{ secrets.GITHUB_TOKEN }} --email ${{ env.email }}
         env:
           username: 'redcarti'
           email: 'leakiorme@gmail.com'
