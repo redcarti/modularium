@@ -21,13 +21,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://npm.pkg.github.com/
       - run: npm install
       - run: |
           npm adduser <<!
-            ${{ username }}
-            ${{ secrets.GITHUB_TOKEN }}
-            ${{ email }}
+            ${{ env.username }}
+            ${{ secrets.NPM_TOKEN }}
+            ${{ env.email }}
           !
         env:
           username: 'redcarti'
