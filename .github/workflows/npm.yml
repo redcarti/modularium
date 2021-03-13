@@ -24,9 +24,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: install, login, publish
         run: |
-          sudo npm cache verify
-          npm install
           npm login --registry=https://npm.pkg.github.com
+          npm install
           npm publish --access public
         env:
           USERNAME: 'redcarti'
