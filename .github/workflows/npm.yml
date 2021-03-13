@@ -18,15 +18,12 @@ jobs:
             echo "not publishing, close"
             exit 78
           fi
-      - uses: actions/setup-node@v1
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v2
         with:
-          node-version: 12
-          registry-url: 'https://npm.pkg.github.com'
-      - run: |
-          npm install
-          npm login --registry https://npm.pkg.github.com
-          npm publish
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install
+      - run: npm publish
         env:
-          USERNAME: 'redcarti'
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLIC-EMAIL-ADRESS: 'leakiorme@gmail.com'
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
