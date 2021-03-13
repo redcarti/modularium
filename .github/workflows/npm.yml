@@ -24,7 +24,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
       - run: |
           npm install
-          npm login
+          npm login --registry https://npm.pkg.github.com
           npm publish
         env:
           USERNAME: 'redcarti'
