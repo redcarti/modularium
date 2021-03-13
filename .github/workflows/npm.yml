@@ -25,8 +25,7 @@ jobs:
       - run: |
           npm install -g npm-cli-adduser
           npm-cli-adduser --registry https://npm.pkg.github.com --username ${{ env.username }} --password ${{ secrets.GH_NPM_TOKEN }} --email ${{ env.email }}
+          npm publish
         env:
           username: 'redcarti'
           email: 'ppamperr@gmail.com'
-      - run: npm whoami
-      - run: npm publish
