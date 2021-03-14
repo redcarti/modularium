@@ -16,15 +16,4 @@ module.exports = (plugin, config) => {
       plugin.locale.add(key, val)
     })
   })
-
-  /*
-  fs.readFile(path.join(process.cwd(), 'locale/' + config.lang + '.json'), { encoding: 'utf8' }, (err, data) => {
-    if (err) { plugin.err(err.message); return }
-    let jsdata = JSON.parse(data)
-    jsdata = LocaleManager.flat(jsdata)
-    Object.entries(jsdata).forEach(([key, val]) => {
-      plugin.locale.add({key, val})
-    })
-  })
-   */
 }

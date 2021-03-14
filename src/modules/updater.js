@@ -5,6 +5,7 @@ module.exports = (plugin, config) => {
   plugin.version = {
     current: pkg.version
   }
+  
   plugin.bot.on('ready', () => {
     if (config.features.updates) {
       checkUpdate({

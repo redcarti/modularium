@@ -1,30 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 const moment = require('moment')
-const requireAll = require('require-all')
-const { FoxBetaDispatcher } = require('modularium.fox')
+const { FoxDispatcher } = require('modularium.fox')
 const { RopePlugin } = require('./lib/Rope')
 const { Collection } = require('discord.js')
 require('colors-cli/toxic')
 
-const recursive_require = directory => {
-  let getFiles = (obj, dir) => {
-    fs.readdirSync(dir).forEach(file => {
-      if (fs.statSync(path.join(dir, file)).isDirectory()){
-        obj[file] = {}
-        getFiles(obj[file], path.join(dir, file))
-      } else if (/\.js$/.test(file)) {
-        file = path.basename(file, '.js')
-        obj[file] = require(path.join(dir, file))
-      }
-    })
-  }
-  let object = {}
-
-  getFiles(object, directory)
-
-  return object
-}
+const recursive_require = require('./lib/recrequire')
 
 module.exports = (bot, config) => {
   const plugin = new RopePlugin()
@@ -36,12 +18,12 @@ module.exports = (bot, config) => {
 
   plugin.bot = bot
 
-  plugin.commands = new FoxBetaDispatcher()
+  plugin.commands = new FoxDispatcher()
 
   // Log functions
   plugin.log = (message, prefix) => {
-    message = `[${moment().format('HH:mm:ss')}${(prefix ? ' | ' + prefix : '')}]: ${message}`
-    console.log(message)
+    let prefixes = [moment().format('HH:mm:ss'), prefix]
+    console.log(`[${prefixes.join(' | ')}]:`, message)
   }
 
   plugin.info = (message) => {
