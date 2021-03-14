@@ -2,7 +2,7 @@ const fsextra = require('fs-extra')
 const path = require('path')
 const { MessageEmbed } = require('discord.js')
 const { Xdesigner } = require('../lib/Xdesigner')
-const requireAll = require('require-all')
+const recRequire = require('../lib/recrequire')
 
 module.exports = (plugin, config) => {
   plugin.designs = new Xdesigner()
