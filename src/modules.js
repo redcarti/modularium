@@ -22,7 +22,7 @@ module.exports = (bot, config) => {
 
   // Log functions
   plugin.log = (message, prefix) => {
-    let prefixes = [moment().format('HH:mm:ss'), prefix]
+    let prefixes = [moment().format('HH:mm:ss'), prefix].filter(Boolean)
     console.log(`[${prefixes.join(' | ')}]:`, message)
   }
 
