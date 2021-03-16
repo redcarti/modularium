@@ -2,8 +2,8 @@ const mentionRegexp = /^<?(@([!&])|#)(\d+)>$/
 
 module.exports = (pl, { user }) => {
   /**
-   * Makes the bot type in channel 
-   * @param {*} message message object 
+   * Makes the bot type in channel
+   * @param {*} message message object
    * @param {*} content function to execute when bot stops typing
    * @param {*} typing time of typing
    */
@@ -19,36 +19,31 @@ module.exports = (pl, { user }) => {
 
   /**
    * Resolves a mention
-   * @param {string} mention 
-   * @param {boolean]} obj 
+   * @param {string} mention
+   * @param {boolean]} obj
    * @returns {object|string|undefined}
    */
   pl.mentionResolve = (mention, obj = true) => {
-    let mentionObj = {}
+    const mentionObj = {}
 
     if (mentionRegexp.test(mention)) {
-      if (mentionRegexp.exec(mention)[2] === '!') 
-        mentionObj.type = 'user'
-      else if (mentionRegexp.exec(mention)[2] === '&') 
-        mentionObj.type = 'role'
-      else if (mentionRegexp.exec(mention)[1] === '#') 
-        mentionObj.type = 'chat'
-      
+      if (mentionRegexp.exec(mention)[2] === '!') { mentionObj.type = 'user' } else if (mentionRegexp.exec(mention)[2] === '&') { mentionObj.type = 'role' } else if (mentionRegexp.exec(mention)[1] === '#') { mentionObj.type = 'chat' }
+
       mentionObj.id = mentionRegexp.exec(mention)[3]
 
       return obj ? mentionObj : mentionObj.id
-    } 
+    }
 
     return undefined
   }
 
   /**
    * Resolves a mention and return User or Channel object
-   * @param {string} mention 
+   * @param {string} mention
    * @returns {object|undefined}
    */
   pl.mentionResolveObj = (mention) => {
-    let resolved = pl.mentionResolve(mention, true)
+    const resolved = pl.mentionResolve(mention, true)
 
     switch (resolved.type) {
       case 'user':
@@ -62,7 +57,7 @@ module.exports = (pl, { user }) => {
 
   /**
    * Finds an emoji by its id
-   * @param {string} id 
+   * @param {string} id
    * @returns {object|undefined}
    */
   pl.findEmoji = (id) => {

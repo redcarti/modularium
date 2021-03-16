@@ -1,10 +1,9 @@
 {
   "name": "modularium",
-  "version": "0.1.19-beta.2",
+  "version": "0.1.20-rc1",
   "description": "A discord.js bot with modules",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard src/**/*.js",
     "fix": "standard --fix src/**/*.js"
   },

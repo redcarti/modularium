@@ -1,4 +1,3 @@
-const fs = require('fs')
 const path = require('path')
 const moment = require('moment')
 const { FoxDispatcher } = require('modularium.fox')
@@ -6,7 +5,7 @@ const { RopePlugin } = require('./lib/Rope')
 const { Collection } = require('discord.js')
 require('colors-cli/toxic')
 
-const recursive_require = require('./lib/recrequire')
+const recRequire = require('./lib/recrequire')
 
 module.exports = (bot, config) => {
   const plugin = new RopePlugin()
@@ -22,7 +21,7 @@ module.exports = (bot, config) => {
 
   // Log functions
   plugin.log = (message, prefix) => {
-    let prefixes = [moment().format('HH:mm:ss'), prefix].filter(Boolean)
+    const prefixes = [moment().format('HH:mm:ss'), prefix].filter(Boolean)
     console.log(`[${prefixes.join(' | ')}]:`, message)
   }
 
@@ -56,7 +55,7 @@ module.exports = (bot, config) => {
 
   // Load internal plugins
   try {
-    Object.entries(recursive_require(`${__dirname}/modules`)).forEach(([name, pl]) => {
+    Object.entries(recRequire(path.join(__dirname, 'modules'))).forEach(([name, pl]) => {
       if (typeof pl === 'function' || typeof pl.plugin === 'function') {
         plugin.list.internal.set(name, {
           name,

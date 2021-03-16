@@ -4,8 +4,8 @@ module.exports = (plugin, config) => {
   plugin.cmdListeners = new Discord.Collection()
 
   plugin.cmdListeners.set('message', async msg => {
-    if (!msg.content.startsWith(config.bot.prefix) || msg.author.bot) return
-  
+    if (!msg.content.startsWith(config.bot.prefix) || msg.author.bot || msg.author.id === plugin.bot.user.id) return
+
     try {
       plugin.commands.parseuse(msg, msg.content.slice(config.bot.prefix.length))
     } catch (e) {
