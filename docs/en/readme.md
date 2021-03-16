@@ -4,7 +4,7 @@
 
 | **Russian** | **English** | other |
 | --- | --- | ---|
-| [*click*](docs/ru_RU/readme.md) | [*click*](docs/en_US/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](docs/ru/readme.md) | [*click*](docs/en/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
 
 ---
 
@@ -37,7 +37,7 @@ ___
 
 | **Russian** | **English** | other |
 | --- | --- | --- |
-| [*click*](../ru_RU/usage.md) | [*click*](../en_US/usage.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](../ru/usage.md) | [*click*](../en/usage.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 | **Russian** | **English** | other |
 | --- | --- | --- |
-| [*click*](../ru_RU/freehost.md) | [*click*](../en_US/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](../ru/freehost.md) | [*click*](../en/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |

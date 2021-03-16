@@ -14,7 +14,7 @@ You can clone this repo and access to internal modules but it's intended for usi
 require('modularium').run(require('./config.json'))
 ```
 
-- Then create `config.json` with this example (it's not full, so see [docs](../en_US/api.md)):
+- Then create `config.json` with this example (it's not full, so see [docs](../en/api.md)):
 ```json
 {
     "bot": {
@@ -22,7 +22,7 @@ require('modularium').run(require('./config.json'))
         "prefix": "!",
         "generateLink": true
     },
-    "lang": "en_US",
+    "lang": "en",
     "user": {
         "typing": 1000
     },
@@ -41,4 +41,4 @@ If you don't want to host your bot on your PC or paid hosting, you can use free 
 
 | **Russian** | **English** | other |
 | --- | --- | --- |
-| [Russian](../ru_RU/freehost.md) | [English](../en_US/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [Russian](../ru/freehost.md) | [English](../en/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |

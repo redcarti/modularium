@@ -22,7 +22,7 @@ require('modularium').run(require('./config.json'))
         "prefix": "!",
         "generateLink": true
     },
-    "lang": "ru_RU",
+    "lang": "ru",
     "user": {
         "typing": 1000
     },
@@ -39,6 +39,6 @@ require('modularium').run(require('./config.json'))
 
 Если ты не хочешь держать бота на своём компьютере или использовать платный хостинг, можно использовать бесплатные хостинги. Смотри тут: 
 
-| **ru_RU** | **en_US** | other |
+| **ru** | **en** | other |
 | --- | --- | --- |
-| [Russian](docs/ru_RU/freehost.md) | [English](docs/en_US/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [Russian](docs/ru/freehost.md) | [English](docs/en/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |

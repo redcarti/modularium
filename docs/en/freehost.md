@@ -4,7 +4,7 @@
 
 ## repl.it
 
-On `repl.it` you use [npm install](docs/en_US/use.md#npm-install) method, but:
+On `repl.it` you use [npm install](docs/en/use.md#npm-install) method, but:
 
 - Create an `.env` file, in which you creating a variable, in case I will use a `TOKEN`:
 

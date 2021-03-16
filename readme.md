@@ -8,5 +8,5 @@ A discord.js bot created with modules
 
 | **Russian** | **English** | other |
 | --- | --- | ---|
-| [*click*](docs/ru_RU/readme.md) | [*click*](docs/en_US/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](docs/ru/readme.md) | [*click*](docs/en/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
 
