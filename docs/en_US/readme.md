@@ -10,7 +10,7 @@
 
 > *Warning!* modularium isn't stable, so few properties can be changed
 
-ModulariumBot is a discord.js bot, created with modules
+ModulariumBot is a discord.js bot created with modules
 
 ### Primitive structure of a module
 ```js
