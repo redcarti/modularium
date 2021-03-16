@@ -1,4 +1,7 @@
 const { EventEmitter } = require('events')
+const { Collection } = require('discord.js')
+const { FoxDispatcher } = require('modularium.fox')
+const moment = require('moment')
 
 class RopeError extends Error {
   constructor (message) {
@@ -27,9 +30,40 @@ class RopeModule extends EventEmitter {
 }
 
 class RopePlugin {
-  constructor () {
-    return this
+  constructor (bot) {
+    Object.defineProperty(this, 'bot', {
+      get: () => bot,
+      set: () => { 
+        this.err('Bot property cannot be changed!')
+      }
+    })
+
+    this.list = {
+      internal: new Collection(),
+      external: new Collection()
+    }
+
+    this.commands = new FoxDispatcher()
   }
+
+  log = (message, prefix) => {
+    const prefixes = [moment().format('HH:mm:ss'), prefix].filter(Boolean)
+    console.log(`[${prefixes.join(' | ')}]:`, message)
+  }
+
+  info = (message) => this.log(message, 'INFO'.x2)
+
+  err = (message) => this.log(message, 'ERR'.x196)
+
+  warn = (message) => this.log(message, 'WARN'.x220)
+
+  pluginInfo = (message) => this.log(message, 'PLUGINS'.x38)
+
+  designInfo = (message) => this.log(message, 'DESIGNS'.x76)
+
+  updateInfo = (message) => this.log(message, 'UPDATE'.x41)
+
+  foxLog = (message) => this.log(message, 'FOX'.x208)
 }
 
 module.exports = {

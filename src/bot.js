@@ -1,9 +1,10 @@
-const Discord = require('discord.js')
+const { Client } = require('discord.js')
 
 const ms = require('./modules')
 
 module.exports.login = (cfg) => {
-  const bot = new Discord.Client(cfg.bot.options)
-  bot.login(cfg.bot.token)
+  const { options, token } = cfg.bot
+  const bot = new Client(options || {})
+  bot.login(token)
   ms(bot, cfg)
 }

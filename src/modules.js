@@ -1,59 +1,11 @@
 const path = require('path')
-const moment = require('moment')
-const { FoxDispatcher } = require('modularium.fox')
 const { RopePlugin } = require('./lib/Rope')
-const { Collection } = require('discord.js')
-require('colors-cli/toxic')
 
 const recRequire = require('./lib/recrequire')
 
 module.exports = (bot, config) => {
-  const plugin = new RopePlugin()
+  const plugin = new RopePlugin(bot)
 
-  plugin.list = {
-    internal: new Collection(),
-    external: new Collection()
-  }
-
-  plugin.bot = bot
-
-  plugin.commands = new FoxDispatcher()
-
-  // Log functions
-  plugin.log = (message, prefix) => {
-    const prefixes = [moment().format('HH:mm:ss'), prefix].filter(Boolean)
-    console.log(`[${prefixes.join(' | ')}]:`, message)
-  }
-
-  plugin.info = (message) => {
-    plugin.log(message, 'INFO'.x2)
-  }
-
-  plugin.err = (message) => {
-    plugin.log(message, 'ERR'.x196)
-  }
-
-  plugin.warn = (message) => {
-    plugin.log(message, 'WARN'.x220)
-  }
-
-  plugin.pluginInfo = (message) => {
-    plugin.log(message, 'PLUGINS'.x38)
-  }
-
-  plugin.designInfo = (message) => {
-    plugin.log(message, 'DESIGNS'.x76)
-  }
-
-  plugin.updateInfo = (message) => {
-    plugin.log(message, 'UPDATE'.x41)
-  }
-
-  plugin.foxLog = (message) => {
-    plugin.log(message, 'FOX'.x208)
-  }
-
-  // Load internal plugins
   try {
     Object.entries(recRequire(path.join(__dirname, 'modules'))).forEach(([name, pl]) => {
       if (typeof pl === 'function' || typeof pl.plugin === 'function') {
@@ -63,13 +15,12 @@ module.exports = (bot, config) => {
           enabled: true
         })
       } else {
-        if (config.features.mbErrors) plugin.pluginInfo('Ошибка, внутренний плагин \'' + name + '\' не функция. [MB#0001-IN]')
+        if (config.features.mbErrors) 
+          plugin.pluginInfo('Ошибка, внутренний плагин \'' + name + '\' не может быть загружен. [MB#0001-IN]')
       }
     })
 
-    plugin.list.internal.forEach((pl) => {
-      pl.plugin(plugin, config)
-    })
+    plugin.list.internal.forEach((pl) => pl.plugin(plugin, config))
   } catch (err) {
     console.error(err)
   }
