@@ -32,14 +32,19 @@ class Xdesigner extends EventEmitter {
   }
 
   find (name) {
-    const design = this._designs.find((val, key) => { return key === name })
+    const design = this._designs.find((_, key) => key === name)
 
     return design
   }
 
   use (name, ...rest) {
     const design = this.find(name)
-    if (design) { this.emit('use', name); return design(rest) } else this.emit('des/404', name)
+    if (design) { 
+      this.emit('use', name)
+      return design(rest) 
+    } 
+    else 
+      this.emit('des/404', name)
   }
 }
 
