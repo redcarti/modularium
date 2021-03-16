@@ -21,7 +21,9 @@ module.exports = (plugin, config) => {
   plugin.bot.on('ready', () => {
     clearInterval(spinner)
     if (config.bot.generateLink === true) {
-      plugin.bot.generateInvite(['ADMINISTRATOR'])
+      plugin.bot.generateInvite({
+        permissions: ['ADMINISTRATOR']
+      })
         .then(link => {
           plugin.info(plugin.localeString('invitelink', link))
         })
