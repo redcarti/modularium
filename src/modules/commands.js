@@ -1,5 +1,9 @@
 const Discord = require('discord.js')
 
+/**
+ * Main module of modularium commands
+ * It's welcome to edit 'cmd/404' and 'cmd/off' listeners but not others
+ */
 module.exports = (plugin, config) => {
   plugin.cmdListeners = new Discord.Collection()
 

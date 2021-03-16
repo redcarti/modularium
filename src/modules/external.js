@@ -2,6 +2,9 @@ const fsextra = require('fs-extra')
 const path = require('path')
 const recRequire = require('../lib/recrequire')
 
+/**
+ * Module that loads external modules
+ */
 module.exports = (plugin, config) => {
   if (config.features.plugins.loadLocal) {
     plugin.bot.on('ready', () => {
@@ -17,7 +20,8 @@ module.exports = (plugin, config) => {
             plugin.list.external.set(name, pl || pl.plugin)
             plugin.list.external.get(name)(plugin, config)
           } else {
-            if (config.features.mbErrors) { plugin.pluginInfo(`[${'ERR'.x196}] ` + plugin.localeString('mb.0001', name) + '[MB#0001-EXT]'.x240) }
+            if (config.features.mbErrors) 
+              plugin.pluginInfo(`[${'ERR'.x196}] ` + plugin.localeString('mb.0001', name) + '[MB#0001-EXT]'.x240)
           }
         })
       } catch (err) {

@@ -1,5 +1,8 @@
 const mentionRegexp = /^<?(@([!&])|#)(\d+)>$/
 
+/**
+ * Module that includes some bot functions as typing, resolving a mention, etc.
+ */
 module.exports = (pl, { user }) => {
   /**
    * Makes the bot type in channel

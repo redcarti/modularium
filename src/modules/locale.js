@@ -3,6 +3,9 @@ const fsextra = require('fs-extra')
 const path = require('path')
 const { LocaleManager } = require('../lib/LocaleManager')
 
+/**
+ * Localization module
+ */
 module.exports = (plugin, config) => {
   fsextra.mkdirp(path.join(process.cwd(), 'locale'))
   plugin.locale = new LocaleManager()

@@ -4,7 +4,7 @@
 
 A discord.js bot created with modules
 
-# Read the docs
+# Read the Docs
 
 | **Russian** | **English** | other |
 | --- | --- | ---|

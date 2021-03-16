@@ -1,6 +1,10 @@
 const pkg = require('../../package.json')
 const checkUpdate = require('check-update-github')
 
+/**
+ * Updater module
+ * If last version on GitHub is different than yours, it will log that there's an update
+ */
 module.exports = (plugin, config) => {
   plugin.version = {
     current: pkg.version

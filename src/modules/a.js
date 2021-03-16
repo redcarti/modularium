@@ -1,6 +1,9 @@
 const rdl = require('readline')
 const ver = require('../../package.json').version
 
+/**
+ * Startup module that includes startupAscii, generating invite link
+ */
 module.exports = (plugin, config) => {
   process.stdout.write('\x1B[2J\x1B[0f')
   const spinners = ['/', '-', '\\', '-']

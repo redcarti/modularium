@@ -1,3 +1,6 @@
+/**
+ * Some random integer/float functions
+ */
 module.exports = (plugin) => {
   plugin.random01 = () => {
     return Math.round(Math.random())

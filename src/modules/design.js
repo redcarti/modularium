@@ -4,6 +4,10 @@ const { MessageEmbed } = require('discord.js')
 const { Xdesigner } = require('../lib/Xdesigner')
 const recRequire = require('../lib/recrequire')
 
+/**
+ * Module of designs
+ * Used to send fast embeds
+ */
 module.exports = (plugin, config) => {
   plugin.designs = new Xdesigner()
 
