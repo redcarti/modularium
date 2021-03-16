@@ -24,8 +24,12 @@ module.exports = (plugin, config) => {
     const files = recRequire(designPath, /^(?!;)(.+)\.js$/)
 
     Object.entries(files).forEach(([name, design]) => {
-      if (typeof design === 'function') { plugin.designs.add(name, design) } else {
-        if (config.features.mbErrors) { plugin.designInfo(`[${'ERR'.x196}] ` + plugin.localeString('mb.0003', name) + '[MB#0003-DES]'.x240) }
+      if (typeof design === 'function') { 
+        plugin.designs.add(name, design) 
+      } else {
+        if (config.features.mbErrors) { 
+          plugin.designInfo(`[${'ERR'.x196}] ` + plugin.localeString('mb.0003', name) + '[MB#0003-DES]'.x240) 
+        }
       }
     })
   } catch (err) {
