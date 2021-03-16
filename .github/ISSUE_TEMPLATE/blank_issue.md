@@ -1,6 +1,6 @@
 ---
 name: Blank issue
-about: Write anything related to `modularium`
+about: Write anything related to modularium
 title: "[]"
 labels: ''
 assignees: ''
