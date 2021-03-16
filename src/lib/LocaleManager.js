@@ -14,7 +14,7 @@ class LocaleManager extends EventEmitter {
     this._locales = new Collection()
 
     const proto = Object.getPrototypeOf(this._locales)
-    
+
     proto.toJSON = () => {
       const jsonData = {}
       const rest = Array.from(this._locales.entries())

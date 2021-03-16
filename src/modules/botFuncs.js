@@ -6,9 +6,9 @@ const mentionRegexp = /^<?(@([!&])|#)(\d+)>$/
 module.exports = (pl, { user }) => {
   /**
    * Makes the bot type in channel
-   * @param {*} message message object
-   * @param {*} content function to execute when bot stops typing
-   * @param {*} typing time of typing
+   * @param {Message} message message object
+   * @param {Function} content function to execute when bot stops typing
+   * @param {Number} typing time of typing
    */
   pl.bot.typing = (message, content, typing = user.typing) => {
     message.channel.startTyping()
@@ -30,9 +30,17 @@ module.exports = (pl, { user }) => {
     const mentionObj = {}
 
     if (mentionRegexp.test(mention)) {
-      if (mentionRegexp.exec(mention)[2] === '!') { mentionObj.type = 'user' } else if (mentionRegexp.exec(mention)[2] === '&') { mentionObj.type = 'role' } else if (mentionRegexp.exec(mention)[1] === '#') { mentionObj.type = 'chat' }
+      const executedMention = mentionRegexp.exec(mention)
 
-      mentionObj.id = mentionRegexp.exec(mention)[3]
+      if (executedMention[2] === '!') {
+        mentionObj.type = 'user'
+      } else if (executedMention[2] === '&') {
+        mentionObj.type = 'role'
+      } else if (executedMention[1] === '#') {
+        mentionObj.type = 'chat'
+      }
+
+      mentionObj.id = executedMention[3]
 
       return obj ? mentionObj : mentionObj.id
     }
@@ -65,7 +73,7 @@ module.exports = (pl, { user }) => {
    */
   pl.findEmoji = (id) => {
     const emoji = pl.bot.emojis.cache.get(id)
-    if (!emoji) return null
+    if (!emoji) { return null }
     return emoji
   }
 }

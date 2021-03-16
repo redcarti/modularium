@@ -39,12 +39,12 @@ class Xdesigner extends EventEmitter {
 
   use (name, ...rest) {
     const design = this.find(name)
-    if (design) { 
+    if (design) {
       this.emit('use', name)
-      return design(rest) 
-    } 
-    else 
+      return design(rest)
+    } else {
       this.emit('des/404', name)
+    }
   }
 }
 

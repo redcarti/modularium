@@ -1,4 +1,9 @@
-modules/
-docs/
-design/
-.github/
+/node_modules
+/package-lock.json
+/modules
+/config.json
+/docs
+/design
+/.github
+/locale
+/examples

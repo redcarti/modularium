@@ -15,8 +15,9 @@ module.exports = (bot, config) => {
           enabled: true
         })
       } else {
-        if (config.features.mbErrors) 
+        if (config.features.mbErrors) {
           plugin.pluginInfo('Ошибка, внутренний плагин \'' + name + '\' не может быть загружен. [MB#0001-IN]')
+        }
       }
     })
 

@@ -33,7 +33,7 @@ class RopePlugin {
   constructor (bot) {
     Object.defineProperty(this, 'bot', {
       get: () => bot,
-      set: () => { 
+      set: () => {
         this.err('Bot property cannot be changed!')
       }
     })
@@ -44,26 +44,26 @@ class RopePlugin {
     }
 
     this.commands = new FoxDispatcher()
+
+    this.log = (message, prefix) => {
+      const prefixes = [moment().format('HH:mm:ss'), prefix].filter(Boolean)
+      console.log(`[${prefixes.join(' | ')}]:`, message)
+    }
+
+    this.info = (message) => this.log(message, 'INFO'.x2)
+
+    this.err = (message) => this.log(message, 'ERR'.x196)
+
+    this.warn = (message) => this.log(message, 'WARN'.x220)
+
+    this.pluginInfo = (message) => this.log(message, 'PLUGINS'.x38)
+
+    this.designInfo = (message) => this.log(message, 'DESIGNS'.x76)
+
+    this.updateInfo = (message) => this.log(message, 'UPDATE'.x41)
+
+    this.foxLog = (message) => this.log(message, 'FOX'.x208)
   }
-
-  log = (message, prefix) => {
-    const prefixes = [moment().format('HH:mm:ss'), prefix].filter(Boolean)
-    console.log(`[${prefixes.join(' | ')}]:`, message)
-  }
-
-  info = (message) => this.log(message, 'INFO'.x2)
-
-  err = (message) => this.log(message, 'ERR'.x196)
-
-  warn = (message) => this.log(message, 'WARN'.x220)
-
-  pluginInfo = (message) => this.log(message, 'PLUGINS'.x38)
-
-  designInfo = (message) => this.log(message, 'DESIGNS'.x76)
-
-  updateInfo = (message) => this.log(message, 'UPDATE'.x41)
-
-  foxLog = (message) => this.log(message, 'FOX'.x208)
 }
 
 module.exports = {
