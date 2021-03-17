@@ -23,7 +23,8 @@
         "off": "Command '%s' is off."
     },
     "updates": {
-        "no_updates": "There is no updates.",
-        "new_update": "There is an update: %s. Type in console %s"
+        "noUpdates": "There is no updates.",
+        "newUpdate": "There is an update: %s. Type in console %s",
+        "noSuchVersion": "Current version not found. Maybe you are a developer."
     }
 }

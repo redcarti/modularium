@@ -1,6 +1,6 @@
 const { EventEmitter } = require('events')
 const { Collection } = require('discord.js')
-const { FoxDispatcher } = require('modularium.fox')
+const { FoxDispatcher } = require('@modularium/fox')
 const moment = require('moment')
 
 class RopeError extends Error {

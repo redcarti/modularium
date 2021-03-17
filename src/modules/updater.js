@@ -1,5 +1,5 @@
 const pkg = require('../../package.json')
-const checkUpdate = require('check-update-github')
+const checkUpdate = require('@modularium/check-update')
 
 /**
  * Updater module
@@ -12,19 +12,22 @@ module.exports = (plugin, config) => {
 
   plugin.bot.on('ready', () => {
     if (config.features.updates) {
-      checkUpdate({
-        name: pkg.name,
-        currentVersion: pkg.version,
-        user: 'redcarti',
-        branch: 'master'
-      }, function (err, latestVersion) {
-        if (err) plugin.updateInfo(err)
-        plugin.needToUpd = latestVersion !== pkg.version
-        plugin.version.latest = latestVersion
-        plugin.updateInfo(latestVersion !== pkg.version
-          ? plugin.localeString('updates.new_update', latestVersion.xb16, 'npm update'.xb16) + '.'
-          : plugin.localeString('updates.no_updates')
-        )
+      checkUpdate('modularium', pkg.version)
+      .then(({ isNeeded, lastVersion }) => {
+        plugin.needToUpd = isNeeded
+
+        plugin.version.latest = lastVersion
+
+        plugin.updateInfo(isNeeded ? 
+          plugin.localeString('updates.newUpdate', lastVersion.xb16, 'npm update'.xb16) + '.' : 
+          plugin.localeString('updates.noUpdates'))
+      })
+      .catch((err) => {
+        if (err.code === 'noSuchVersion') {
+          plugin.updateInfo(plugin.localeString('updates.noSuchVersion'))
+        } else {
+          plugin.err(err)
+        }
       })
     }
   })
