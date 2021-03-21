@@ -76,4 +76,8 @@ module.exports = (pl, { user }) => {
     if (!emoji) { return null }
     return emoji
   }
+
+  pl.userWithDescriminator = (user) => {
+    return `${user.username}#${user.descriminator}`
+  }
 }
