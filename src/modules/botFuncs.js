@@ -53,7 +53,7 @@ module.exports = (pl, { user }) => {
    * @param {string} mention
    * @returns {object|undefined}
    */
-  pl.mentionResolveObj = (mention) => {
+  pl.mentionResolveObj = mention => {
     const resolved = pl.mentionResolve(mention, true)
 
     switch (resolved.type) {
@@ -71,13 +71,11 @@ module.exports = (pl, { user }) => {
    * @param {string} id
    * @returns {object|undefined}
    */
-  pl.findEmoji = (id) => {
+  pl.findEmoji = id => {
     const emoji = pl.bot.emojis.cache.get(id)
     if (!emoji) { return null }
     return emoji
   }
 
-  pl.userWithDescriminator = (user) => {
-    return `${user.username}#${user.descriminator}`
-  }
+  pl.userWithDescriminator = user => `${user.username}#${user.descriminator}`
 }
