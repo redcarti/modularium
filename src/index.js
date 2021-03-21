@@ -1,10 +1,33 @@
 const bot = require('./bot')
 require('colors-cli/toxic')
 
-module.exports.run = (cfg) => {
-  if (!cfg.bot.token) {
-    throw new Error('Open \'config.json\' and add a token')
-  }
+class Config {
+  constructor (config) {
+    let proto = Object.getPrototypeOf(this)
 
-  bot.login(cfg)
+    proto = { ...proto, ...config }
+
+    Object.setPrototypeOf(this, proto)
+
+    console.log(this)
+
+    if (!this.bot.token) {
+      throw new Error(
+        `Please, provide a token in a config
+      
+        Example:
+        modularium.run({
+          bot: {
+            token: 'here_goes_your_token'
+          }
+        })`
+      )
+    }
+  }
+}
+
+module.exports.run = (cfg) => {
+  const config = new Config(cfg)
+
+  bot.login(config)
 }

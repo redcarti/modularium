@@ -2,24 +2,30 @@ const rdl = require('readline')
 const ver = require('../../package.json').version
 
 /**
- * Startup module that includes startupAscii, generating invite link
+ * Startup module that includes ascii, generating invite link
  */
 module.exports = (plugin, config) => {
   process.stdout.write('\x1B[2J\x1B[0f')
   const spinners = ['/', '-', '\\', '-']
   let index = 0
+  const timeStarted = Date.now()
 
   const spinner = setInterval(() => {
     let line = spinners[index]
     if (index + 1 > spinners.length) index = 0; line = spinners[index]
-    process.stdout.write(line.x1 + '  ' + plugin.localeString('spinner.wait'))
+    const lineToDisplay = `  ${line.x1} ${plugin.localeString('spinner.wait')}`
+    process.stdout.write(lineToDisplay)
+    if (Date.now() - timeStarted > 2500) process.stdout.write(`\t(${plugin.localeString('spinner.tooLong')})`)
     rdl.cursorTo(process.stdout, 0)
 
     index = index >= spinners.length ? 0 : index + 1
   }, 100)
 
   plugin.bot.on('ready', () => {
+    rdl.clearLine(process.stdout, 0)
+
     clearInterval(spinner)
+
     if (config.bot.generateLink === true) {
       plugin.bot.generateInvite({
         permissions: ['ADMINISTRATOR']
@@ -42,5 +48,9 @@ module.exports = (plugin, config) => {
   const f6 = '                                                                                '.x1.xb16
   const f7 = `  v${ver}  `.x1.xb16
   const all = `\n  ${f1}\n  ${f2}\n  ${f3}\n  ${f4}\n  ${f5}\n  ${f6}\n  ${f7}\n`
-  if (config.features.startupascii) console.log(all)
+  if (config.features.ascii) {
+    console.log(all)
+  } else {
+    console.log(`\n  ${'   ModulariumBot  '.x1.xb16}\n  ${f7}\n`)
+  }
 }

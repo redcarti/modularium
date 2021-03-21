@@ -4,7 +4,7 @@
 
 | **Russian** | **English** | other |
 | --- | --- | ---|
-| [*click*](docs/ru/readme.md) | [*click*](docs/en/readme.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](docs/ru/readme.md) | [*click*](docs/en/readme.md) | [submit PR!](https://github.com/modularium/modularium/pulls) |
 
 ---
 
@@ -27,7 +27,7 @@ ___
 
 # Помощь в разработке
 ```bash
-$ git clone https://github.com/redcarti/modularium
+$ git clone https://github.com/modularium/modularium
 $ cd modularium
 $ npm i
 ```
@@ -37,7 +37,7 @@ ___
 
 | **Russian** | **English** | other |
 | --- | --- | --- |
-| [*click*](docs/ru/usage.md) | [*click*](docs/en/usage.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](docs/ru/usage.md) | [*click*](docs/en/usage.md) | [submit PR!](https://github.com/modularium/modularium/pulls) |
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 | **Russian** | **English** | other |
 | --- | --- | --- |
-| [*click*](docs/ru/freehost.md) | [*click*](docs/en/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [*click*](docs/ru/freehost.md) | [*click*](docs/en/freehost.md) | [submit PR!](https://github.com/modularium/modularium/pulls) |

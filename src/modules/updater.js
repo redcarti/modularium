@@ -13,22 +13,22 @@ module.exports = (plugin, config) => {
   plugin.bot.on('ready', () => {
     if (config.features.updates) {
       checkUpdate('modularium', pkg.version)
-      .then(({ isNeeded, lastVersion }) => {
-        plugin.needToUpd = isNeeded
+        .then(({ isNeeded, lastVersion }) => {
+          plugin.needToUpd = isNeeded
 
-        plugin.version.latest = lastVersion
+          plugin.version.latest = lastVersion
 
-        plugin.updateInfo(isNeeded ? 
-          plugin.localeString('updates.newUpdate', lastVersion.xb16, 'npm update'.xb16) + '.' : 
-          plugin.localeString('updates.noUpdates'))
-      })
-      .catch((err) => {
-        if (err.code === 'noSuchVersion') {
-          plugin.updateInfo(plugin.localeString('updates.noSuchVersion'))
-        } else {
-          plugin.err(err)
-        }
-      })
+          plugin.updateInfo(isNeeded
+            ? plugin.localeString('updates.newUpdate', lastVersion.xb16, 'npm update'.xb16) + '.'
+            : plugin.localeString('updates.noUpdates'))
+        })
+        .catch((err) => {
+          if (err.code === 'noSuchVersion') {
+            plugin.updateInfo(plugin.localeString('updates.noSuchVersion'))
+          } else {
+            plugin.err(err)
+          }
+        })
     }
   })
 }

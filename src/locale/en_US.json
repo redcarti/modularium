@@ -1,7 +1,8 @@
 {
     "error": "Error",
     "spinner": {
-        "wait": "Waiting 'til ready..."
+        "wait": "Waiting 'til ready...",
+        "tooLong": "If bot will not load restart it."
     },
     "invitelink": "Inviting link: %s",
     "plugins": {

@@ -23,7 +23,7 @@
 | `warn` | Logging with warning prefix | `function()` |
 | `pluginInfo` | Logging info of plugins | `function()` |
 | `designInfo` | Logging info of designs | `function()` |
-| `foxInfo` | [Fox](https://github.com/redcarti/fox) logging | `function()` |
+| `foxInfo` | [Fox](https://github.com/modularium/fox) logging | `function()` |
 
 #### Example
 ```js
@@ -59,8 +59,8 @@ Documentation of `Discord.Collection` are located [here](https://discord.js.org/
 #### Listeners
 | Name | Description | Can you change? |
 | --- | --- | :-: |
-| `cmd/404` | Logging that a command not found | Yes |
-| `cmd/off` | Logging that a command is off | Yes |
+| `404` | Logging that a command not found | Yes |
+| `off` | Logging that a command is off | Yes |
 | `use` | Logging use of a command | Yes |
 | `message` | Parses and running a command | No |
 

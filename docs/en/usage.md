@@ -6,7 +6,7 @@ You can clone this repo and access to internal modules but it's intended for usi
 
 ## `npm install`
 
-- Install modularium via `npm install --save https://github.com/redcarti/modularium` *or* `npm install --save modularium`
+- Install modularium via `npm install --save https://github.com/modularium/modularium` *or* `npm install --save modularium`
 
 - Then create an `index.js` file with this code:
 
@@ -22,7 +22,7 @@ require('modularium').run(require('./config.json'))
         "prefix": "!",
         "generateLink": true
     },
-    "lang": "en",
+    "lang": "en_US",
     "user": {
         "typing": 1000
     },
@@ -41,4 +41,4 @@ If you don't want to host your bot on your PC or paid hosting, you can use free 
 
 | **Russian** | **English** | other |
 | --- | --- | --- |
-| [Russian](../ru/freehost.md) | [English](../en/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [Russian](../ru/freehost.md) | [English](../en/freehost.md) | [submit PR!](https://github.com/modularium/modularium/pulls) |

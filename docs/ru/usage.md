@@ -2,35 +2,41 @@
 
 ## `git clone`
 
-Вы можете склонировать репозиторий и иметь доступ к внутренним объектам, но лучше использовать [другой метод](#npm-install)
+Вы можете склонировать репозиторий и иметь доступ к внутренним объектам, но лучше использовать [устанавливать его](#npm-install)
+
+Если вы всё-таки склонировали репозиторий, напишите в консоль:
+```shell
+$ npm install
+$ node index
+```
 
 ## `npm install`
 
-- Сначала установите modularium, `npm install --save https://github.com/redcarti/modularium` *или* `npm install --save modularium`
+- Сначала установите `modularium` с помощью команды `npm install modularium`
 
 - Потом, создайте `index.js` с таким кодом:
 
-```js
-require('modularium').run(require('./config.json'))
-```
+```javascript
+let modularium = require('modularium')
 
-- Далее, создайте `config.json` с содержанием (простой пример, смотрите больше в документации):
-```json
-{
-    "bot": {
-        "token": "ваш_token",
-        "prefix": "!",
-        "generateLink": true
+// modularium.run() требует конфигурацию, пример:
+modularium.run({
+    bot: {
+        token: 'ваш_token', // токен самого бота, без которого modularium не запустится
+        prefix: '!', // префикс для выполнения команд, стандартный - !
+        generateLink: true // сгенерировать ссылку для приглашения бота
     },
-    "lang": "ru",
-    "user": {
-        "typing": 1000
+    lang: 'ru_RU', // язык бота
+    // настройки "пользователя"
+    user: {
+        typing: 1000 // время "набора" сообщения в миллисекундах
     },
-    "features": {
-        "preventCmdNotFound": true,
-        "updates": true
+    // разные возможности, которые имеет бот.
+    features: {
+        preventCmdNotFound: true, // предотвращать то, что команда не найдена.
+        updates: true // проверка на обновления
     }
-}
+})
 ```
 
 - Можно запускать, написав в консоль `node index`.
@@ -41,4 +47,4 @@ require('modularium').run(require('./config.json'))
 
 | **ru** | **en** | other |
 | --- | --- | --- |
-| [Russian](docs/ru/freehost.md) | [English](docs/en/freehost.md) | [submit PR!](https://github.com/redcarti/modularium/pulls) |
+| [Russian](docs/ru/freehost.md) | [English](docs/en/freehost.md) | [submit PR!](https://github.com/modularium/modularium/pulls) |

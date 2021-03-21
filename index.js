@@ -1,3 +1,4 @@
 const config = require('./config.json')
+const modularium = require('./src/index')
 
-require('./src/index').run(config)
+modularium.run(config)

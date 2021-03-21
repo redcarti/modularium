@@ -12,7 +12,7 @@ module.exports = (plugin, config) => {
   plugin.localeString = (key, ...rest) => plugin.locale.localeString(key, ...rest)
 
   fs.readFile(path.join(__dirname, '../locale/' + config.lang + '.json'), { encoding: 'utf8' }, (err, data) => {
-    if (err) { 
+    if (err) {
       plugin.err(err.message)
       return
     }
