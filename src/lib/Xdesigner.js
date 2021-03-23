@@ -1,5 +1,4 @@
 const { Collection } = require('discord.js')
-const { EventEmitter } = require('events')
 
 class XDError extends Error {
   constructor (message) {

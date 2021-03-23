@@ -35,6 +35,4 @@ module.exports = async (plugin, config) => {
   } catch (err) {
     plugin.err('Catched error\n' + err.name + ': ' + err.message + '\n' + err.stack)
   }
-
-  console.log(plugin.designs)
 }
