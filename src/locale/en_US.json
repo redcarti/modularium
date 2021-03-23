@@ -2,30 +2,31 @@
     "error": "Error",
     "spinner": {
         "wait": "Waiting 'til ready...",
-        "tooLong": "If bot will not load restart it."
+        "tooLong": "If bot will not load restart it"
     },
     "invitelink": "Inviting link: %s",
     "plugins": {
-        "loaded": "'%s' loaded. ",
-        "skipped": "'%s' skipped. "
+        "loaded": "'%s' loaded ",
+        "skipped": "'%s' skipped ",
+        "loading": "Loading external plugins..."
     },
     "mb": {
-        "0001": "Error, plugin '%s' can't be loaded. ",
-        "0002": "'%s' skipped. ",
-        "0003": "Error, design '%s' can't be loaded. "
+        "0001": "Error, plugin '%s' can't be loaded ",
+        "0002": "'%s' skipped ",
+        "0003": "Error, design '%s' can't be loaded "
     },
     "fox": {
-        "0001": "%s (from %s) tried to invoke %s. Command not found. ",
-        "0002": "%s (from %s) tried to invoke %s. Command is off. ",
-        "use": "%s (from %s) invokes %s. "
+        "0001": "%s (from %s) tried to invoke %s. Command not found ",
+        "0002": "%s (from %s) tried to invoke %s. Command is off ",
+        "use": "%s (from %s) invokes %s "
     },
     "cmd": {
-        "404": "Command '%s' not found.",
-        "off": "Command '%s' is off."
+        "404": "Command '%s' not found",
+        "off": "Command '%s' is off"
     },
     "updates": {
-        "noUpdates": "There is no updates.",
+        "noUpdates": "There is no updates",
         "newUpdate": "There is an update: %s. Type in console %s",
-        "noSuchVersion": "Current version not found. Maybe you are a developer."
+        "noSuchVersion": "Current version not found. Maybe you are a developer"
     }
 }

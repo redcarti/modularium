@@ -6,7 +6,7 @@ const { LocaleManager } = require('../lib/LocaleManager')
 /**
  * Localization module
  */
-module.exports = (plugin, config) => {
+module.exports = async (plugin, config) => {
   fsextra.mkdirp(path.join(process.cwd(), 'locale'))
   plugin.locale = new LocaleManager()
   plugin.localeString = (key, ...rest) => plugin.locale.localeString(key, ...rest)

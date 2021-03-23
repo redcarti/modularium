@@ -1,10 +1,10 @@
 const rdl = require('readline')
-const ver = require('../../package.json').version
+const { version: ver } = require('../../package.json')
 
 /**
  * Startup module that includes ascii, generating invite link
  */
-module.exports = (plugin, config) => {
+module.exports = async (plugin, config) => {
   process.stdout.write('\x1B[2J\x1B[0f')
   const spinners = ['/', '-', '\\', '-']
   let index = 0
@@ -40,17 +40,17 @@ module.exports = (plugin, config) => {
     // plugin.bot.user.setUsername(config.user.name || 'ModulariumBot')
   })
 
-  const f1 = '  ,__ __                      _                                   , __          '.x1.xb16
-  const f2 = ' /|  |  |          |         | |             o                   /|/  \\         '.x1.xb16
-  const f3 = '  |  |  |   __   __|         | |  __,   ,_              _  _  _   | __/ __ _|_  '.x1.xb16
-  const f4 = '  |  |  |  /  \\_/  |  |   |  |/  /  |  /  |  |  |   |  / |/ |/ |  |   \\/  \\_|   '.x1.xb16
-  const f5 = '  |  |  |_/\\__/ \\_/|_/ \\_/|_/|__/\\_/|_/   |_/|_/ \\_/|_/  |  |  |_/|(__/\\__/ |_/ '.x1.xb16
-  const f6 = '                                                                                '.x1.xb16
-  const f7 = `  v${ver}  `.x1.xb16
-  const all = `\n  ${f1}\n  ${f2}\n  ${f3}\n  ${f4}\n  ${f5}\n  ${f6}\n  ${f7}\n`
+  const line1 = '  ,__ __                      _                                   , __          '.x1.xb16
+  const line2 = ' /|  |  |          |         | |             o                   /|/  \\         '.x1.xb16
+  const line3 = '  |  |  |   __   __|         | |  __,   ,_              _  _  _   | __/ __ _|_  '.x1.xb16
+  const line4 = '  |  |  |  /  \\_/  |  |   |  |/  /  |  /  |  |  |   |  / |/ |/ |  |   \\/  \\_|   '.x1.xb16
+  const line5 = '  |  |  |_/\\__/ \\_/|_/ \\_/|_/|__/\\_/|_/   |_/|_/ \\_/|_/  |  |  |_/|(__/\\__/ |_/ '.x1.xb16
+  const line6 = '                                                                                '.x1.xb16
+  const line7 = `v${ver} `
+
   if (config.features.ascii) {
-    console.log(all)
+    console.log(`\n  ${line1}\n  ${line2}\n  ${line3}\n  ${line4}\n  ${line5}\n  ${line6}\n  ${('  ' + line7 + ' ').x1.xb16}\n`)
   } else {
-    console.log(`\n  ${'   ModulariumBot  '.x1.xb16}\n  ${f7}\n`)
+    console.log(`\n  ${('  ModulariumBot | ' + line7).x1.xb16}\n`)
   }
 }

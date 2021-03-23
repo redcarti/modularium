@@ -8,7 +8,7 @@
 | Название | Описание | Тип |
 | --- | --- | --- |
 | [`commands`](#plugincommands) | Команды | `Object` |
-| [`cmdListeners`](#plugincmdListeners) | Листенеры команд | [`Discord.Collection`](https://discord.js.org/#/docs/collection/master/class/Collection) |
+| [`_commandListeners`](#plugin_commandListeners) | Листенеры команд | [`Discord.Collection`](https://discord.js.org/#/docs/collection/master/class/Collection) |
 | `random01()` | Рандомное число от 0 до 1 | `function()` |
 | `randomInt(min, max)` | Возвращает случайное целое число от `min` до `max` | `function()` |
 | `randomFloat(min, max)` | Возвращает случайное число с плавающей запятой от `min` до `max` (15 знаков за запятой) | `function()` |
@@ -52,7 +52,7 @@ module.exports = (plugin) => {
 
 * * *
 
-### `plugin.cmdListeners`
+### `plugin._commandListeners`
 Представляет собой коллекцию листенеров для обработки команд, которые вы можете заменять
 Документация по `Discord.Collection` [находится здесь](https://discord.js.org/#/docs/collection/master/class/Collection)
 

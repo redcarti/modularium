@@ -3,10 +3,10 @@ const { RopePlugin } = require('./lib/Rope')
 
 const recRequire = require('./lib/recrequire')
 
-module.exports = (bot, config) => {
+module.exports = async (bot, config) => {
   const plugin = new RopePlugin(bot)
 
-  try {
+  new Promise((resolve, reject) => {
     Object.entries(recRequire(path.join(__dirname, 'modules'))).forEach(([name, pl]) => {
       if (typeof pl === 'function' || typeof pl.plugin === 'function') {
         plugin.list.internal.set(name, {
@@ -21,10 +21,12 @@ module.exports = (bot, config) => {
       }
     })
 
-    plugin.list.internal.forEach((pl) => pl.plugin(plugin, config))
-  } catch (err) {
-    console.error(err)
-  }
+    resolve()
+  })
+    .then(() => {
+      plugin.list.internal.forEach((pl) => pl.plugin(plugin, config))
+    })
+    .catch(console.error)
 
   return plugin
 }

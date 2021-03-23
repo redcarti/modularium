@@ -14,7 +14,7 @@ module.exports = (plugin, config) => {
     if (config.features.updates) {
       checkUpdate('modularium', pkg.version)
         .then(({ isNeeded, lastVersion }) => {
-          plugin.needToUpd = isNeeded
+          plugin.needToUpdate = isNeeded
 
           plugin.version.latest = lastVersion
 

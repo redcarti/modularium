@@ -1,7 +1,7 @@
 /**
  * Some random integer/float functions
  */
-module.exports = (plugin) => {
+module.exports = async (plugin) => {
   plugin.random01 = () => {
     return Math.round(Math.random())
   }

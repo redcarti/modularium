@@ -9,24 +9,14 @@ class Config {
 
     Object.setPrototypeOf(this, proto)
 
-    console.log(this)
-
     if (!this.bot.token) {
-      throw new Error(
-        `Please, provide a token in a config
-      
-        Example:
-        modularium.run({
-          bot: {
-            token: 'here_goes_your_token'
-          }
-        })`
-      )
+      console.log('Please, provide a token in a config\n\nExample:\nmodularium.run({\n  bot: {\n    token: \'here_goes_your_token\'\n  }\n})')
+      process.exit(1337)
     }
   }
 }
 
-module.exports.run = (cfg) => {
+module.exports.run = async (cfg) => {
   const config = new Config(cfg)
 
   bot.login(config)

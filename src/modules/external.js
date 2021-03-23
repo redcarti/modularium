@@ -5,9 +5,11 @@ const recRequire = require('../lib/recrequire')
 /**
  * Module that loads external modules
  */
-module.exports = (plugin, config) => {
+module.exports = async (plugin, config) => {
   if (config.features.plugins.loadLocal) {
     plugin.bot.on('ready', () => {
+      plugin.info(plugin.localeString('plugins.loading'))
+
       try {
         const modulesPath = path.join(process.cwd(), 'modules')
         fsextra.mkdirpSync(modulesPath)

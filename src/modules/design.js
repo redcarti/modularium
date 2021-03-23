@@ -8,7 +8,7 @@ const recRequire = require('../lib/recrequire')
  * Module of designs
  * Used to send fast embeds
  */
-module.exports = (plugin, config) => {
+module.exports = async (plugin, config) => {
   plugin.designs = new Xdesigner()
 
   plugin.designs.add('simpleEmbed', ([title, description]) => {
@@ -35,4 +35,6 @@ module.exports = (plugin, config) => {
   } catch (err) {
     plugin.err('Catched error\n' + err.name + ': ' + err.message + '\n' + err.stack)
   }
+
+  console.log(plugin.designs)
 }

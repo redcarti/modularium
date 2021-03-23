@@ -8,7 +8,7 @@
 | Name | Description | Type |
 | --- | --- | --- |
 | [`commands`](#plugincommands) | Commands | `Object` |
-| [`cmdListeners`](#plugincmdListeners) | Command listeners | [`Discord.Collection`](https://discord.js.org/#/docs/collection/master/class/Collection) |
+| [`_commandListeners`](#plugin_commandListeners) | Command listeners | [`Discord.Collection`](https://discord.js.org/#/docs/collection/master/class/Collection) |
 | `random01()` | Random int in range of 0 and 1 | `function()` |
 | `randomInt(min, max)` | Random int in range of `min` and `max` | `function()` |
 | `randomFloat(min, max)` | Random float in range of `min` and `max` (15 decimal places) | `function()` |
@@ -52,7 +52,7 @@ module.exports = (plugin) => {
 
 * * *
 
-### `plugin.cmdListeners`
+### `plugin._commandListeners`
 A collection of listeners for processing commands that you can replace
 Documentation of `Discord.Collection` are located [here](https://discord.js.org/#/docs/collection/master/class/Collection)
 

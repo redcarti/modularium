@@ -11,23 +11,28 @@ class XDError extends Error {
 
 class Xdesign {
   constructor (design) {
-    return design
+    this._design = design
+  }
+
+  use () {
+    return this._design
   }
 }
 
-class Xdesigner extends EventEmitter {
+class Xdesigner {
   constructor () {
-    super()
     this._designs = new Collection()
   }
 
   add (name, design) {
     const Xdes = new Xdesign(design)
+
     this._designs.set(name, Xdes)
   }
 
   remove (name) {
     const design = this.find(name)
+
     this._designs.delete(design)
   }
 
@@ -37,13 +42,17 @@ class Xdesigner extends EventEmitter {
     return design
   }
 
-  use (name, ...rest) {
+  async use (name, ...rest) {
     const design = this.find(name)
     if (design) {
-      this.emit('use', name)
-      return design(rest)
+      design().use(rest)
+      return name
     } else {
-      this.emit('des/404', name)
+      throw XDError({
+        code: '404',
+        name,
+        rest
+      })
     }
   }
 }
