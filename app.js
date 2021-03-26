@@ -1,7 +1,4 @@
-const { RopeModule } = require('./src/lib/Rope')
-const { run } = require('./src/index')
+const config = require('./config.json')
+const modularium = require('./src/index')
 
-module.exports = {
-    run,
-    RopeModule
-}
+modularium.run(config)

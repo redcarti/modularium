@@ -1,11 +1,12 @@
 {
   "name": "modularium",
-  "version": "0.1.23-beta.1",
+  "version": "0.1.23-beta.2",
   "description": "A discord.js bot created with modules",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "lint": "standard src/**/*.js",
-    "fix": "standard --fix src/**/*.js"
+    "fix": "standard --fix src/**/*.js",
+    "dev": "node app"
   },
   "keywords": [
     "discord",
