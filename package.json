@@ -1,7 +1,7 @@
 {
-  "name": "modularium",
+  "name": "@modularium/discord",
   "version": "0.1.23-beta.2",
-  "description": "A discord.js bot created with modules",
+  "description": "Create discord.js bots with modules",
   "main": "index.js",
   "scripts": {
     "lint": "standard src/**/*.js",
