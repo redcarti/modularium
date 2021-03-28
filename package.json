@@ -1,6 +1,6 @@
 {
   "name": "@modularium/discord",
-  "version": "0.1.23-beta.2",
+  "version": "0.1.23-beta.3",
   "description": "Create discord.js bots with modules",
   "main": "index.js",
   "scripts": {
@@ -19,11 +19,11 @@
     "name": "modularium",
     "url": "https://github.com/modularium"
   },
-  "homepage": "https://github.com/modularium/modularium",
-  "bugs": "https://github.com/modularium/modularium/issues",
+  "homepage": "https://github.com/modularium/discord",
+  "bugs": "https://github.com/modularium/discord/issues",
   "license": "MIT",
   "dependencies": {
-    "@modularium/check-update": "^1.0.1",
+    "@modularium/check-update": "^1.0.5",
     "colors-cli": "^1.0.27",
     "discord.js": "^12.5.1",
     "fs-extra": "^9.1.0",
