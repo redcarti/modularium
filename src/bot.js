@@ -1,4 +1,4 @@
-const { Client } = require('discord.js')
+const { Client } = require('discord.js-light')
 
 const ms = require('./modules')
 
