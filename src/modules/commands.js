@@ -14,29 +14,30 @@ module.exports = async (plugin, config) => {
 
     plugin.commands.parseuse(msg, command)
       .then(args => plugin._commandListeners.get('use')(msg, command, args))
-      .catch(({ name, message, code }) => {
+      .catch(({ name, message, code, stack }) => {
         if (name === 'FoxError') {
           if (code === '404' || code === 'off') {
             plugin._commandListeners.get(code)(msg, command)
           }
         } else {
           plugin.foxLog(`[${'ERR'.x196}] ` + name + ': ' + message)
+          console.error(stack)
         }
       })
   })
 
   plugin._commandListeners.set('404', async (msg, cmd) => {
-    plugin.foxLog(plugin.localeString('fox.0001', plugin.userWithDescriminator(msg.author).xb16, msg.guild.name, cmd.xb16) + '[FOX#0001]'.x240)
+    plugin.foxLog(plugin.localeString('fox.0001', plugin.userWithDiscriminator(msg.author).xb16, msg.guild.name, cmd.xb16) + '[FOX#0001]'.x240)
     msg.channel.send(plugin.designs.use('simpleEmbed', plugin.localeString('error'), plugin.localeString('cmd.404', cmd)))
   })
 
   plugin._commandListeners.set('off', async (msg, cmd) => {
-    plugin.foxLog(plugin.localeString('fox.0002', plugin.userWithDescriminator(msg.author).xb16, msg.guild.name, cmd.xb16) + '[FOX#0002]'.x240)
+    plugin.foxLog(plugin.localeString('fox.0002', plugin.userWithDiscriminator(msg.author).xb16, msg.guild.name, cmd.xb16) + '[FOX#0002]'.x240)
     msg.channel.send(plugin.designs.use('simpleEmbed', plugin.localeString('error'), plugin.localeString('cmd.off', cmd)))
   })
 
   plugin._commandListeners.set('use', async (msg, cmd, args) => {
-    plugin.foxLog(plugin.localeString('fox.use', plugin.userWithDescriminator(msg.author).xb16, msg.guild.name, cmd.xb16 + (args.length > 0 ? ' '.xb16 + args.join(' ').xb16 : '')))
+    plugin.foxLog(plugin.localeString('fox.use', plugin.userWithDiscriminator(msg.author).xb16, msg.guild.name, cmd.xb16 + (args.length > 0 ? ' '.xb16 + args.join(' ').xb16 : '')))
   })
 
   plugin.bot.on('message', plugin._commandListeners.get('message'))
