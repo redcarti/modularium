@@ -1,5 +1,5 @@
 const pkg = require('../../package.json')
-const checkUpdate = require('@modularium/check-update')
+const { checkUpdate } = require('@modularium/check-update')
 
 /**
  * Updater module
