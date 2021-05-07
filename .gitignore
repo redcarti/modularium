@@ -3,3 +3,4 @@ package-lock.json
 /modules/*
 !/modules/readme.md
 /config.json
+/yarn.lock
