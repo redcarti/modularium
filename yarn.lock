@@ -60,10 +60,10 @@
   dependencies:
     axios "^0.21.1"
 
-"@modularium/fox@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@modularium/fox/-/fox-0.1.5.tgz#460b33fdca8f83c69aed4c7e7886d293d1985f33"
-  integrity sha512-dVFXP98v2Un0e4JfLgNIYSEbBoS8LmbQC4sMuetv6ZwGWvuilTKpm6KBb7KkevjAvD49gVoDKi1Ro9xArTj3MA==
+"@modularium/fox@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@modularium/fox/-/fox-0.1.6.tgz#4c71996e18e69bd4a0578dd29db007d334736fdd"
+  integrity sha512-2jHSJCzMgQf1u3MVVKgzClXkl+dwO0thcEUOmaBCGAxWRE0s59CO35YvkG7nDa5TGeU+G6NQvgW9xenNUYH+ww==
   dependencies:
     "@discordjs/collection" "^0.1.6"
 
