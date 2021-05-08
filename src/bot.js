@@ -11,5 +11,6 @@ module.exports.login = (cfg) => {
       console.error(`${stack}`)
       process.exit(1)
     })
+  delete cfg.bot.token
   ms(bot, cfg)
 }
