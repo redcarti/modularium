@@ -12,7 +12,7 @@ module.exports = async (plugin, config) => {
 
     const command = msg.content.slice(config.bot.prefix.length)
 
-    plugin.commands.parseuse(msg, command)
+    plugin.commands.parseuse(command, msg)
       .then(args => plugin._commandListeners.get('use')(msg, command, args))
       .catch(({ name, message, code, stack }) => {
         if (name === 'FoxError') {
